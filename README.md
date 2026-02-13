@@ -43,16 +43,3 @@ Utilizamos o **AI4I 2020 Predictive Maintenance Dataset**, disponibilizado pelo 
 * **Machine Learning:** Scikit-Learn (Random Forest, XGBoost, etc.)
 * **Ambiente:** Jupyter Notebooks
 
----
-
-## 🚀 Estrutura do Projeto
-
-A organização das pastas segue a seguinte lógica:
-
-```bash
-├── data/                  # Dados brutos e processados
-├── notebooks/             # Jupyter Notebooks com a análise exploratória e modelagem
-├── src/                   # Scripts Python para processamento e treino
-├── results/               # Gráficos, matrizes de confusão e métricas
-├── requirements.txt       # Dependências do projeto
-└── README.md              # Documentação do projeto
