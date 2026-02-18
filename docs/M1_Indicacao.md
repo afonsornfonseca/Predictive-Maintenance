@@ -20,6 +20,24 @@ Teams/Discord].
 * **Qualidade Inicial:** [Ex: Notámos que faltam dados de datas em algumas colunas, precisaremos
 de tratar isso na M2.]
 * **Ética:** [Os dados cumprem o RGPD? Estão anonimizados?]
+* **1. Visão Geral e Estrutura dos Dados**
+O dataset é composto por 10.000 instâncias (linhas) e 14 variáveis (colunas), apresentando uma integridade de dados impecável, uma vez que não foram detetados valores nulos em nenhuma das categorias. A estrutura combina dados identificativos (como o UDI e o Product ID) com medições físicas cruciais para a manutenção preditiva, tais como temperatura ambiente, temperatura do processo, velocidade de rotação, binário (torque) e o desgaste da ferramenta. Do ponto de vista técnico, os dados estão corretamente tipificados: as variáveis físicas são representadas por números reais (float64) e inteiros (int64), enquanto as categorias qualitativas, como o tipo de produto (Type), são tratadas como objetos.
+
+* **2. Análise Estatística e Operacional**
+Os indicadores estatísticos revelam máquinas a operar, em média, com uma temperatura ambiente de aproximadamente 300 K e uma velocidade de rotação média de 1538 rpm. É observável uma dispersão considerável na velocidade de rotação, que atinge um máximo de 2886 rpm, e no torque, que varia entre os 3.8 Nm e os 76.6 Nm. Estas variações são fundamentais, pois o desgaste da ferramenta (que apresenta uma média de 107 minutos) é um dos principais indicadores de stress mecânico acumulado nos equipamentos.
+
+* **3. Diagnóstico de Falhas e Alvos de Previsão**
+A variável alvo principal, Machine failure, indica que a taxa de falha no conjunto de dados é de aproximadamente 3.39%. Este valor demonstra um cenário de dados desbalanceados, onde as situações de avaria são raras face ao funcionamento normal. O dataset é particularmente rico por detalhar os modos de falha específicos que o modelo de Machine Learning deverá identificar:
+
+HDF (Dissipação de Calor): A causa mais frequente entre as falhas listadas (1.15%).
+
+OSF (Excesso de Esforço): Representa 0.98% das ocorrências.
+
+PWF (Falha de Potência): Registada em 0.95% dos casos.
+
+TWF (Desgaste da Ferramenta): Incidência de 0.46%.
+
+RNF (Falhas Aleatórias): Apenas 0.19%, representando eventos imprevisíveis.
 ## 5. Cronograma Interno
 | Fase | Data Limite | Entregável Esperado |
 | :--- | :--- | :--- |
