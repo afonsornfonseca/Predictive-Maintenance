@@ -33,11 +33,15 @@ Existem padrões de funcionamento operacional (combinações de desgaste, temper
 Teams/Discord].
 
 ## 4. Análise de Viabilidade dos Dados
+
+Disponibilidade:
+
 A fase inicial do projeto começou com a identificação e obtenção do conjunto de dados a utilizar. O dataset selecionado foi descarregado a partir da plataforma Kaggle, através do seguinte endereço: https://www.kaggle.com/datasets/afonsornfonseca/ai4i-2020-predictive-maintenance
 Após o download, o ficheiro do dataset foi armazenado no espaço de trabalho do grupo e, de seguida, carregado novamente para o Kaggle com o objetivo de criar um Notebook associado ao dataset. Esta abordagem permitiu iniciar rapidamente o desenvolvimento num ambiente já configurado para análise de dados e execução de código, facilitando a colaboração e a reprodutibilidade do trabalho.
 Neste momento, os dados não se encontram numa base de dados relacional (por exemplo, SQL Server, MySQL ou PostgreSQL). O dataset é utilizado em formato CSV, o que é adequado à sua dimensão (10.000 registos e 14 variáveis) e ao âmbito do projeto, permitindo leitura e manipulação direta com ferramentas como Pandas/NumPy dentro do notebook.
 
-Qualidade Inicial
+Qualidade Inicial:
+
 Numa inspeção inicial ao ficheiro CSV, verificou-se que o dataset apresenta uma estrutura tabular estável e consistente: 10.000 linhas e 14 colunas, incluindo variáveis numéricas (temperaturas, velocidade rotacional, torque e desgaste da ferramenta), variáveis categóricas (tipo de produto) e variáveis binárias de falha.
 Do ponto de vista de integridade, os dados revelam-se, à partida, de boa qualidade para análise:
 Não foram detetados valores em falta (missing values) nas colunas do dataset.
@@ -53,7 +57,8 @@ Variáveis de identificação
 As colunas UDI e Product ID funcionam como identificadores e, por regra, não acrescentam valor preditivo direto; ainda assim, serão avaliadas na M2 para confirmar se devem ser removidas do treino do modelo (evitando ruído ou enviesamento).
 Em síntese, o dataset apresenta boa qualidade estrutural, mas levanta desafios relevantes e interessantes (sobretudo desbalanceamento e coerência entre variáveis de falha), que serão tratados formalmente nas fases seguintes.
 
-Ética
+Ética:
+
 Do ponto de vista ético e de conformidade com privacidade, o dataset não contém dados pessoais. As variáveis existentes referem-se exclusivamente a medições operacionais de máquinas e indicadores técnicos de falhas, não incluindo nomes, moradas, contactos, localizações pessoais ou qualquer identificador humano.
 Adicionalmente, trata-se de um dataset de natureza pública e amplamente utilizado para fins académicos e de investigação, o que reduz riscos associados a utilização indevida de informação sensível. Assim, não existem implicações relevantes ao nível do RGPD, uma vez que:
 não há dados pessoais ou sensíveis;
