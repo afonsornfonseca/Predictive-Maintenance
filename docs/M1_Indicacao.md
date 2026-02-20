@@ -4,11 +4,14 @@ O setor da manufatura industrial encontra-se numa fase de transição acelerada 
 
 Tradicionalmente, a gestão da fiabilidade de equipamentos baseia-se em abordagens subotimizadas: a manutenção reativa (intervenção corretiva pós-falha), que resulta em paragens inesperadas e custos de reparação severos; ou a manutenção preventiva (intervenção calendarizada), que gera desperdício financeiro e de materiais ao descartar componentes que ainda possuem um ciclo de vida útil considerável. A transição para a Manutenção Preditiva, suportada por algoritmos de Machine Learning e pela análise multivariável de dados reais (como temperatura, binário e rotação), surge assim como a solução tecnológica imperativa para antecipar estados de pré-falha e otimizar a intervenção nos equipamentos.
 ## 2. Objetivos SMART
-*Defina os objetivos do projeto seguindo a lógica SMART (Específico, Mensurável, Atingível,
-Relevante e Temporal):*
-1. **Objetivo 1:** [Ex: Reduzir o erro de previsão de stock em 15% até ao final do semestre.]
-2. **Objetivo 2:** [Ex: Identificar os 5 principais perfis de consumo através de técnicas de
-clustering.]
+Para antecipar avarias industriais, o projeto visa tornar transparentes para o modelo de Machine Learning as causas subjacentes à variável alvo (Machine failure), modelando matematicamente cinco modos de falha independentes. A abordagem analítica rege-se pelos seguintes objetivos:
+
+Objetivo 1: Desenvolver um modelo de classificação binária para prever a ocorrência da variável geral de falha (Machine failure), atingindo um F1-Score mínimo de 0.85 na identificação de avarias, de modo a minimizar paragens operacionais não planeadas, até à entrega do Milestone 3.
+
+Objetivo 2: Desenvolver uma pipeline de Engenharia de Variáveis que extraia três novas métricas físicas baseadas nas regras de operação do equipamento — diferença térmica (para previsão de HDF), potência calculada em rad/s (para PWF) e esforço de binário face ao desgaste (para OSF) —, integrando-as na Análise Exploratória (EDA) a entregar no Milestone 2.
+
+Objetivo 3: Treinar um algoritmo de classificação multiclasse capaz de distinguir e diagnosticar a causa raiz da avaria entre os modos específicos (TWF, HDF, PWF, OSF e RNF) com uma Exatidão Global (Accuracy) superior a 80%, a apresentar no relatório final do Milestone 4.
+
 ## 3. Metodologia de Gestão (PBL)
 * **Divisão de Tarefas:**
 * **Membro A:** Responsável pela Engenharia de Dados.
