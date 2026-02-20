@@ -12,6 +12,17 @@ Objetivo 2: Desenvolver uma pipeline de Engenharia de Variáveis que extraia tr�
 
 Objetivo 3: Treinar um algoritmo de classificação multiclasse capaz de distinguir e diagnosticar a causa raiz da avaria entre os modos específicos (TWF, HDF, PWF, OSF e RNF) com uma Exatidão Global (Accuracy) superior a 80%, a apresentar no relatório final do Milestone 4.
 
+Perguntas de Investigação
+
+A fase de exploração de dados (EDA) procurará ainda responder às seguintes questões de investigação, que apresentam um impacto direto na compreensão da operação mecânica e na identificação das causas de avaria:
+
+De que forma a variante de qualidade do produto (L, M, H) influencia a taxa de adição de desgaste à ferramenta (Tool wear) e altera os limites críticos de falha por sobrecarga (OSF)?
+
+Qual a correlação entre a velocidade de rotação e o binário (Torque) nos cenários em que a potência resultante ultrapassa os limites de operação segura (< 3500 W ou > 9000 W), causando uma falha de potência (PWF)?
+
+Como interage a diferença entre a temperatura do processo e a temperatura ambiente com a velocidade de rotação na previsão de falhas por dissipação de calor (HDF)?
+
+Existem padrões de funcionamento operacional (combinações de desgaste, temperatura e binário) que operem muito perto dos limiares críticos de avaria sem chegarem a registar falha, constituindo potenciais falsos alarmes teóricos na operação da máquina?
 ## 3. Metodologia de Gestão (PBL)
 * **Divisão de Tarefas:**
 * **Membro A:** Responsável pela Engenharia de Dados.
