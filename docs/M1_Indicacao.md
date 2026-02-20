@@ -66,21 +66,14 @@ os identificadores presentes (por exemplo, Product ID) referem-se a produtos/má
 a finalidade do uso é académica e enquadrada no contexto de análise e modelação.
 Desta forma, conclui-se que o dataset é eticamente apropriado para o desenvolvimento do projeto e não requer procedimentos adicionais de anonimização.
 
-* **2. Análise Estatística e Operacional**
+Análise Estatística e Operacional
+
 Os indicadores estatísticos revelam máquinas a operar, em média, com uma temperatura ambiente de aproximadamente 300 K e uma velocidade de rotação média de 1538 rpm. É observável uma dispersão considerável na velocidade de rotação, que atinge um máximo de 2886 rpm, e no torque, que varia entre os 3.8 Nm e os 76.6 Nm. Estas variações são fundamentais, pois o desgaste da ferramenta (que apresenta uma média de 107 minutos) é um dos principais indicadores de stress mecânico acumulado nos equipamentos.
 
-* **3. Diagnóstico de Falhas e Alvos de Previsão**
+Diagnóstico de Falhas e Alvos de Previsão
+
 A variável alvo principal, Machine failure, indica que a taxa de falha no conjunto de dados é de aproximadamente 3.39%. Este valor demonstra um cenário de dados desbalanceados, onde as situações de avaria são raras face ao funcionamento normal. O dataset é particularmente rico por detalhar os modos de falha específicos que o modelo de Machine Learning deverá identificar:
 
-HDF (Dissipação de Calor): A causa mais frequente entre as falhas listadas (1.15%).
-
-OSF (Excesso de Esforço): Representa 0.98% das ocorrências.
-
-PWF (Falha de Potência): Registada em 0.95% dos casos.
-
-TWF (Desgaste da Ferramenta): Incidência de 0.46%.
-
-RNF (Falhas Aleatórias): Apenas 0.19%, representando eventos imprevisíveis.
 ## 5. Cronograma Interno
 | Fase | Data Limite | Entregável Esperado |
 | :--- | :--- | :--- |
