@@ -46,4 +46,4 @@ RNF (Falhas Aleatórias): Apenas 0.19%, representando eventos imprevisíveis.
 | M3: Modelação | [Data] | Comparação de algoritmos e métricas. |
 | M4: Finalização| [Data] | Pitch e Relatório Final. |
 ---
-*Data de última atualização: [18/02/2026]*
+*Data de última atualização: [20/02/2026]*
