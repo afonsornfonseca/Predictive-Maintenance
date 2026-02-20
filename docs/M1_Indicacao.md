@@ -31,13 +31,35 @@ Existem padrões de funcionamento operacional (combinações de desgaste, temper
 * **Membro C:** Responsável pela Visualização e Documentação.
 * **Ferramentas de Colaboração:** [Ex: GitHub Projects para Kanban, reuniões semanais via
 Teams/Discord].
+
 ## 4. Análise de Viabilidade dos Dados
-* **Disponibilidade:** [Os dados já foram descarregados? Estão em base de dados?]
-* **Qualidade Inicial:** [Ex: Notámos que faltam dados de datas em algumas colunas, precisaremos
-de tratar isso na M2.]
-* **Ética:** [Os dados cumprem o RGPD? Estão anonimizados?]
-* **1. Visão Geral e Estrutura dos Dados**
-O dataset é composto por 10.000 instâncias (linhas) e 14 variáveis (colunas), apresentando uma integridade de dados impecável, uma vez que não foram detetados valores nulos em nenhuma das categorias. A estrutura combina dados identificativos (como o UDI e o Product ID) com medições físicas cruciais para a manutenção preditiva, tais como temperatura ambiente, temperatura do processo, velocidade de rotação, binário (torque) e o desgaste da ferramenta. Do ponto de vista técnico, os dados estão corretamente tipificados: as variáveis físicas são representadas por números reais (float64) e inteiros (int64), enquanto as categorias qualitativas, como o tipo de produto (Type), são tratadas como objetos.
+A fase inicial do projeto começou com a identificação e obtenção do conjunto de dados a utilizar. O dataset selecionado foi descarregado a partir da plataforma Kaggle, através do seguinte endereço: https://www.kaggle.com/datasets/afonsornfonseca/ai4i-2020-predictive-maintenance
+Após o download, o ficheiro do dataset foi armazenado no espaço de trabalho do grupo e, de seguida, carregado novamente para o Kaggle com o objetivo de criar um Notebook associado ao dataset. Esta abordagem permitiu iniciar rapidamente o desenvolvimento num ambiente já configurado para análise de dados e execução de código, facilitando a colaboração e a reprodutibilidade do trabalho.
+Neste momento, os dados não se encontram numa base de dados relacional (por exemplo, SQL Server, MySQL ou PostgreSQL). O dataset é utilizado em formato CSV, o que é adequado à sua dimensão (10.000 registos e 14 variáveis) e ao âmbito do projeto, permitindo leitura e manipulação direta com ferramentas como Pandas/NumPy dentro do notebook.
+
+Qualidade Inicial
+Numa inspeção inicial ao ficheiro CSV, verificou-se que o dataset apresenta uma estrutura tabular estável e consistente: 10.000 linhas e 14 colunas, incluindo variáveis numéricas (temperaturas, velocidade rotacional, torque e desgaste da ferramenta), variáveis categóricas (tipo de produto) e variáveis binárias de falha.
+Do ponto de vista de integridade, os dados revelam-se, à partida, de boa qualidade para análise:
+Não foram detetados valores em falta (missing values) nas colunas do dataset.
+Não foram identificadas linhas duplicadas.
+As tipologias das variáveis encontram-se coerentes com o esperado (numéricas para medições e binárias para indicadores de falha).
+No entanto, identificam-se desde já aspetos importantes que terão impacto direto na fase de exploração e modelação (M2/M3):
+Desbalanceamento da variável alvo (“Machine failure”)
+A ocorrência de falha é relativamente rara: existem 339 casos de falha em 10.000 registos, correspondendo a cerca de 3,39% do total. Este desbalanceamento é comum em cenários reais de manutenção preditiva, mas exige cuidados técnicos (métricas adequadas, estratégias de validação e, eventualmente, técnicas de reamostragem/ponderação).
+Relação entre “Machine failure” e os tipos de falha específicos
+O dataset inclui variáveis binárias para tipos específicos de falha (TWF, HDF, PWF, OSF, RNF). Numa verificação preliminar, observou-se que a correspondência entre a variável “Machine failure” e a presença/ausência destes indicadores não é perfeita em todos os registos (existem alguns casos em que aparece um tipo específico marcado sem “Machine failure”, e casos inversos).
+Este ponto será analisado detalhadamente na M2 para compreender se se trata de uma regra definida pelo dataset (por exemplo, tratamento especial da falha RNF) ou de inconsistências que exijam decisões de pré-processamento.
+Variáveis de identificação
+As colunas UDI e Product ID funcionam como identificadores e, por regra, não acrescentam valor preditivo direto; ainda assim, serão avaliadas na M2 para confirmar se devem ser removidas do treino do modelo (evitando ruído ou enviesamento).
+Em síntese, o dataset apresenta boa qualidade estrutural, mas levanta desafios relevantes e interessantes (sobretudo desbalanceamento e coerência entre variáveis de falha), que serão tratados formalmente nas fases seguintes.
+
+Ética
+Do ponto de vista ético e de conformidade com privacidade, o dataset não contém dados pessoais. As variáveis existentes referem-se exclusivamente a medições operacionais de máquinas e indicadores técnicos de falhas, não incluindo nomes, moradas, contactos, localizações pessoais ou qualquer identificador humano.
+Adicionalmente, trata-se de um dataset de natureza pública e amplamente utilizado para fins académicos e de investigação, o que reduz riscos associados a utilização indevida de informação sensível. Assim, não existem implicações relevantes ao nível do RGPD, uma vez que:
+não há dados pessoais ou sensíveis;
+os identificadores presentes (por exemplo, Product ID) referem-se a produtos/máquinas e não a indivíduos;
+a finalidade do uso é académica e enquadrada no contexto de análise e modelação.
+Desta forma, conclui-se que o dataset é eticamente apropriado para o desenvolvimento do projeto e não requer procedimentos adicionais de anonimização.
 
 * **2. Análise Estatística e Operacional**
 Os indicadores estatísticos revelam máquinas a operar, em média, com uma temperatura ambiente de aproximadamente 300 K e uma velocidade de rotação média de 1538 rpm. É observável uma dispersão considerável na velocidade de rotação, que atinge um máximo de 2886 rpm, e no torque, que varia entre os 3.8 Nm e os 76.6 Nm. Estas variações são fundamentais, pois o desgaste da ferramenta (que apresenta uma média de 107 minutos) é um dos principais indicadores de stress mecânico acumulado nos equipamentos.
