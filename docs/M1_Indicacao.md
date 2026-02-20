@@ -29,8 +29,7 @@ Existem padrões de funcionamento operacional (combinações de desgaste, temper
 * **Membro A:** Responsável pela Engenharia de Dados.
 * **Membro B:** Responsável pela Modelação Estatística.
 * **Membro C:** Responsável pela Visualização e Documentação.
-* **Ferramentas de Colaboração:** [Ex: GitHub Projects para Kanban, reuniões semanais via
-Teams/Discord].
+* **Ferramentas de Colaboração:** GitHub, Reuniões Semanais via Discord
 
 ## 4. Análise de Viabilidade dos Dados
 
