@@ -6,13 +6,13 @@ Tradicionalmente, a gestão da fiabilidade de equipamentos baseia-se em abordage
 ## 2. Objetivos SMART
 Para antecipar avarias industriais, o projeto visa tornar transparentes para o modelo de Machine Learning as causas subjacentes à variável alvo (Machine failure), modelando matematicamente cinco modos de falha independentes. A abordagem analítica rege-se pelos seguintes objetivos:
 
-Objetivo 1: Desenvolver um modelo de classificação binária para prever a ocorrência da variável geral de falha (Machine failure), atingindo um F1-Score mínimo de 0.85 na identificação de avarias, de modo a minimizar paragens operacionais não planeadas, até à entrega do Milestone 3.
+**Objetivo 1:** Desenvolver um modelo de classificação binária para prever a ocorrência da variável geral de falha (Machine failure), atingindo um F1-Score mínimo de 0.85 na identificação de avarias, de modo a minimizar paragens operacionais não planeadas, até à entrega do Milestone 3.
 
-Objetivo 2: Desenvolver uma pipeline de Engenharia de Variáveis que extraia três novas métricas físicas baseadas nas regras de operação do equipamento — diferença térmica (para previsão de HDF), potência calculada em rad/s (para PWF) e esforço de binário face ao desgaste (para OSF) —, integrando-as na Análise Exploratória (EDA) a entregar no Milestone 2.
+**Objetivo 2:** Desenvolver uma pipeline de Engenharia de Variáveis que extraia três novas métricas físicas baseadas nas regras de operação do equipamento — diferença térmica (para previsão de HDF), potência calculada em rad/s (para PWF) e esforço de binário face ao desgaste (para OSF) —, integrando-as na Análise Exploratória (EDA) a entregar no Milestone 2.
 
-Objetivo 3: Treinar um algoritmo de classificação multiclasse capaz de distinguir e diagnosticar a causa raiz da avaria entre os modos específicos (TWF, HDF, PWF, OSF e RNF) com uma Exatidão Global (Accuracy) superior a 80%, a apresentar no relatório final do Milestone 4.
+**Objetivo 3:** Treinar um algoritmo de classificação multiclasse capaz de distinguir e diagnosticar a causa raiz da avaria entre os modos específicos (TWF, HDF, PWF, OSF e RNF) com uma Exatidão Global (Accuracy) superior a 80%, a apresentar no relatório final do Milestone 4.
 
-Perguntas de Investigação
+## Perguntas de Investigação
 
 A fase de exploração de dados (EDA) procurará ainda responder às seguintes questões de investigação, que apresentam um impacto direto na compreensão da operação mecânica e na identificação das causas de avaria:
 
@@ -23,6 +23,7 @@ Qual a correlação entre a velocidade de rotação e o binário (Torque) nos ce
 Como interage a diferença entre a temperatura do processo e a temperatura ambiente com a velocidade de rotação na previsão de falhas por dissipação de calor (HDF)?
 
 Existem padrões de funcionamento operacional (combinações de desgaste, temperatura e binário) que operem muito perto dos limiares críticos de avaria sem chegarem a registar falha, constituindo potenciais falsos alarmes teóricos na operação da máquina?
+
 ## 3. Metodologia de Gestão (PBL)
 * **Divisão de Tarefas:**
 * **Membro A:** Responsável pela Engenharia de Dados.
