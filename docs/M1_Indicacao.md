@@ -1,7 +1,8 @@
 # Milestone 1: Iniciação e Definição do Projeto
 ## 1. Descrição Detalhada do Problema
-[Expandir a descrição do README. Explicar o contexto do setor (ex: retalho, banca, saúde) e
-porque é que este problema é relevante no momento atual.]
+O setor da manufatura industrial encontra-se numa fase de transição acelerada impulsionada pela Indústria 4.0, onde a digitalização e a recolha contínua de dados operacionais através de sensores industriais (IoT) assumem um papel central. Neste cenário de alta competitividade, a eficiência operacional e a minimização de paragens não planeadas na linha de produção são fatores críticos para a sustentabilidade, cumprimento de prazos e rentabilidade das organizações.
+
+Tradicionalmente, a gestão da fiabilidade de equipamentos baseia-se em abordagens subotimizadas: a manutenção reativa (intervenção corretiva pós-falha), que resulta em paragens inesperadas e custos de reparação severos; ou a manutenção preventiva (intervenção calendarizada), que gera desperdício financeiro e de materiais ao descartar componentes que ainda possuem um ciclo de vida útil considerável. A transição para a Manutenção Preditiva, suportada por algoritmos de Machine Learning e pela análise multivariável de dados reais (como temperatura, binário e rotação), surge assim como a solução tecnológica imperativa para antecipar estados de pré-falha e otimizar a intervenção nos equipamentos.
 ## 2. Objetivos SMART
 *Defina os objetivos do projeto seguindo a lógica SMART (Específico, Mensurável, Atingível,
 Relevante e Temporal):*
