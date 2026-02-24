@@ -8,7 +8,7 @@ Para antecipar avarias industriais, o projeto visa tornar transparentes para o m
 
 **Objetivo 1:** Desenvolver um modelo de classificação binária para prever a ocorrência da variável geral de falha (Machine failure), atingindo um F1-Score mínimo de 0.85 na identificação de avarias, de modo a minimizar paragens operacionais não planeadas, até à entrega do Milestone 3.
 
-**Objetivo 2:** Desenvolver uma pipeline de Engenharia de Variáveis que extraia três novas métricas físicas baseadas nas regras de operação do equipamento — diferença térmica (para previsão de HDF), potência calculada em rad/s (para PWF) e esforço de binário face ao desgaste (para OSF) —, integrando-as na Análise Exploratória (EDA) a entregar no Milestone 2.
+**Objetivo 2:** Desenvolver uma pipeline de Engenharia de Variáveis que extraia três novas métricas físicas baseadas nas regras de operação do equipamento: diferença térmica (para previsão de HDF), potência calculada em rad/s (para PWF) e esforço de binário face ao desgaste (para OSF), integrando-as na Análise Exploratória (EDA) a entregar no Milestone 2.
 
 **Objetivo 3:** Treinar um algoritmo de classificação multiclasse capaz de distinguir e diagnosticar a causa raiz da avaria entre os modos específicos (TWF, HDF, PWF, OSF e RNF) com uma Exatidão Global (Accuracy) superior a 80%, a apresentar no relatório final do Milestone 4.
 
@@ -26,11 +26,11 @@ Existem padrões de funcionamento operacional (combinações de desgaste, temper
 
 ## 3. Metodologia de Gestão (PBL)
 * **Divisão de Tarefas:**
-* **Membro A:** Responsável pela Engenharia de Dados.
-* **Membro B:** Responsável pela Modelação Estatística.
-* **Membro C:** Responsável pela Visualização e Documentação.
+* **Membro Afonso Fonseca:** README.MD, Kaggle Notebook, M1_indicacao.md.
+* **Membro Artur Yakovenko:** .gitignore, M1_indicacao.md.
+* **Membro Bernardo Vieira:** requirements.txt, docs, M1_indicacao.md.
 * **Ferramentas de Colaboração:** GitHub, Reuniões Semanais via Discord
-
+  
 ## 4. Análise de Viabilidade dos Dados
 
 Disponibilidade:
