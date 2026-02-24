@@ -1,4 +1,4 @@
-# Manutenção Preditiva em Indústria (IoT)
+# Manutenção Preditiva em Indústria
 
 > **Previsão de falhas de máquinas através de dados de sensores para evitar paragens não planeadas.**
 
@@ -9,7 +9,7 @@
 
 Na indústria 4.0, o tempo de inatividade não planeado custa milhões. A **Manutenção Preditiva** é a solução chave para este problema, permitindo que as empresas intervenham nas máquinas antes que estas avariem, baseando-se em dados reais e não em estimativas temporais.
 
-Este projeto utiliza técnicas de **Machine Learning** e análise de dados de sensores (IoT) para prever a probabilidade de falha de equipamentos. O objetivo principal é criar um modelo capaz de distinguir entre o funcionamento normal e estados de pré-falha, analisando variáveis como temperatura, vibração (inferida), rotação e torque.
+Este projeto utiliza técnicas de **Machine Learning** e análise de dados de sensores para prever a probabilidade de falha de equipamentos. O objetivo principal é criar um modelo capaz de distinguir entre o funcionamento normal e estados de pré-falha, analisando variáveis como temperatura, vibração (inferida), rotação e torque.
 
 ### Objetivos
 * **O Problema:** Prever *quando* e *se* uma máquina vai avariar com base em leituras de sensores.
