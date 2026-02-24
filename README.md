@@ -30,7 +30,7 @@ Utilizamos o **AI4I 2020 Predictive Maintenance Dataset**, disponibilizado pelo 
     * `Rotational speed [rpm]`: Rotação do fuso.
     * `Torque [Nm]`: Torque aplicado.
     * `Tool wear [min]`: Desgaste da ferramenta (em minutos).
-* **Target (Alvo):** `Machine failure` (Binário: 0 = Não falha, 1 = Falha).
+* **Target (Alvo):** `Machine failure`.
 
 ---
 
