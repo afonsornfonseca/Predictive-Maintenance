@@ -4,7 +4,6 @@
 
 ![Status do Projeto](https://img.shields.io/badge/Status-Em_Desenvolvimento-yellow)
 ![Python](https://img.shields.io/badge/Python-3.8%2B-blue)
-![License](https://img.shields.io/badge/License-MIT-green)
 
 ## Sobre o Projeto
 
