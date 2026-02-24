@@ -42,3 +42,9 @@ Utilizamos o **AI4I 2020 Predictive Maintenance Dataset**, disponibilizado pelo 
 * **Machine Learning:** Scikit-Learn (Random Forest, XGBoost, etc.)
 * **Ambiente:** Jupyter Notebooks
 
+---
+
+## Referências
+
+AI4I 2020 Predictive Maintenance Dataset. (2020). *UCI Machine Learning Repository*. https://archive.ics.uci.edu/ml/datasets/AI4I+2020+Predictive+Maintenance+Dataset
+
