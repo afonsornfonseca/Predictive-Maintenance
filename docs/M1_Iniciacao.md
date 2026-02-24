@@ -29,7 +29,7 @@ Existem padrões de funcionamento operacional (combinações de desgaste, temper
 * **Membro Afonso Fonseca:** README.MD, Kaggle Notebook, M1_indicacao.md.
 * **Membro Artur Yakovenko:** .gitignore, M1_indicacao.md.
 * **Membro Bernardo Vieira:** requirements.txt, docs, M1_indicacao.md.
-* **Ferramentas de Colaboração:** GitHub, Reuniões Semanais via Discord
+* **Ferramentas de Colaboração:** GitHub, Kaggle, Reuniões Semanais via Discord
   
 ## 4. Análise de Viabilidade dos Dados
 
