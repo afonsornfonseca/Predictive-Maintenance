@@ -1,10 +1,7 @@
 # Milestone 2: Análise Exploratória e Engenharia de Atributos
 ## 1. Análise Exploratória de Dados (EDA)
 ### 1.1. Distribuição da Variável Alvo
-*Descrevam como se comporta a variável que querem prever. Está equilibrada? Segue uma distribuição
-normal?*
-> **Factos importantes:** (Ex: "A nossa variável alvo 'Churn' está desequilibrada, com 80% de
-clientes ativos e 20% que saíram.")
+A nossa variável alvo 'Machine failure' está severamente desequilibrada, com 96,61% das ocorrências a representarem um funcionamento normal e apenas 3,39% a corresponderem a falhas reais.
 ### 1.2. Correlações Relevantes
 *Quais as variáveis que têm maior relação com o problema? Incluam referências a gráficos que
 geraram no Kaggle.*
