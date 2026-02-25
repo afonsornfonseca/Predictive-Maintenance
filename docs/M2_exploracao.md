@@ -11,9 +11,7 @@ cancelamento.")
 clientes.")
 ## 2. Qualidade dos Dados e Limpeza
 ### 2.1. Tratamento de Dados em Falta (Missing Data)
-* **Colunas afetadas:** [Lista de colunas]
-* **Estratégia adotada:** (Ex: "Substituímos os nulos da coluna 'Salário' pela mediana para
-evitar o impacto de outliers.")
+Após a verificação inicial do dataset (através do método isnull().sum()), confirmou-se que o conjunto de dados está perfeitamente preenchido. Não existem valores nulos ou em falta em nenhuma das 14 colunas ao longo das 10.000 instâncias. Por conseguinte, não foi necessário aplicar qualquer técnica de imputação (como substituição por média/mediana) ou eliminação de registos, mantendo-se a integridade total dos dados originais para a fase de modelação.
 ### 2.2. Outliers e Inconsistências
 *Descrevam se encontraram valores impossíveis (ex: idade = 200) e como os resolveram.*
 ## 3. Engenharia de Atributos (Feature Engineering)
