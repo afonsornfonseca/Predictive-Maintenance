@@ -1,7 +1,4 @@
 # Milestone 2: Análise Exploratória e Engenharia de Atributos
-> **Nota de Revisão:** Este documento pressupõe que o dataset já foi identificado e descrito no
-ficheiro `docs/M1_iniciacao.md`. Caso precise de consultar o significado original das variáveis,
-deve consultar essa Milestone.
 ## 1. Análise Exploratória de Dados (EDA)
 ### 1.1. Distribuição da Variável Alvo
 *Descrevam como se comporta a variável que querem prever. Está equilibrada? Segue uma distribuição
