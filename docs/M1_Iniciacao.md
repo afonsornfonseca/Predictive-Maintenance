@@ -39,6 +39,25 @@ A fase inicial do projeto começou com a identificação e obtenção do conjunt
 Após o download, o ficheiro do dataset foi armazenado no espaço de trabalho do grupo e, de seguida, carregado novamente para o Kaggle com o objetivo de criar um Notebook associado ao dataset. Esta abordagem permitiu iniciar rapidamente o desenvolvimento num ambiente já configurado para análise de dados e execução de código, facilitando a colaboração e a reprodutibilidade do trabalho.
 Neste momento, os dados não se encontram numa base de dados relacional (por exemplo, SQL Server, MySQL ou PostgreSQL). O dataset é utilizado em formato CSV, o que é adequado à sua dimensão (10.000 registos e 14 variáveis) e ao âmbito do projeto, permitindo leitura e manipulação direta com ferramentas como Pandas/NumPy dentro do notebook.
 
+## Dicionário das variáveis
+
+| Variável | Tipo Estatístico | Domínio | Classes / Escala Semântica | Definição Operacional | Papel Analítico |
+|----------|----------------|--------|----------------------------|----------------------|-----------------|
+| UID | Numérica discreta | [1, 10000] | — | Identificador único de cada registo | Identificador (não preditivo) |
+| Product ID | Categórica nominal | — | L / M / H + número de série | Identificação do produto com variante de qualidade | Identificador (não preditivo) |
+| Type | Categórica nominal | {L, M, H} | L = Low, M = Medium, H = High | Tipo de produto (nível de qualidade) | Operacional |
+| Air temperature [K] | Numérica contínua | ~[295, 305] | — | Temperatura ambiente da máquina | Sensor térmico |
+| Process temperature [K] | Numérica contínua | ~[305, 315] | — | Temperatura do processo industrial | Sensor térmico |
+| Rotational speed [rpm] | Numérica discreta | ~[1200, 3000] | — | Velocidade de rotação da máquina | Sensor mecânico |
+| Torque [Nm] | Numérica contínua | ~[3, 80] | — | Binário aplicado durante o funcionamento | Sensor mecânico |
+| Tool wear [min] | Numérica discreta | [0, 250] | — | Tempo de desgaste acumulado da ferramenta | Estado do equipamento |
+| Machine failure | Categórica binária | {0,1} | 0 = normal, 1 = falha | Indica se ocorreu falha na máquina | Variável alvo |
+| TWF | Categórica binária | {0,1} | Tool Wear Failure | Falha devido a desgaste excessivo da ferramenta | Tipo de falha |
+| HDF | Categórica binária | {0,1} | Heat Dissipation Failure | Falha por dissipação de calor insuficiente | Tipo de falha |
+| PWF | Categórica binária | {0,1} | Power Failure | Falha devido a potência inadequada | Tipo de falha |
+| OSF | Categórica binária | {0,1} | Overstrain Failure | Falha por esforço excessivo | Tipo de falha |
+| RNF | Categórica binária | {0,1} | Random Failure | Falha aleatória sem padrão definido | Tipo de falha |
+
 Qualidade Inicial:
 
 Numa inspeção inicial ao ficheiro CSV, verificou-se que o dataset apresenta uma estrutura tabular estável e consistente: 10.000 linhas e 14 colunas, incluindo variáveis numéricas (temperaturas, velocidade rotacional, torque e desgaste da ferramenta), variáveis categóricas (tipo de produto) e variáveis binárias de falha.
