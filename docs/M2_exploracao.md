@@ -49,11 +49,25 @@ A nossa estratégia foi a manutenção integral de todos os outliers, não aplic
 pela idade do cliente.")
 ## 4. Dicionário de Dados Final (Pós-Processamento)
 *Listagem final das variáveis que serão entregues ao modelo na Fase 3.*
-| Atributo | Tipo | Descrição |
-| :--- | :--- | :--- |
-| `cliente_id` | ID | Removido (não preditivo) |
-| `idade_norm` | Float | Idade após normalização |
-| `is_premium` | Binary | 1 para clientes com plano superior |
+## Dicionário das variáveis
+
+| Variável | Tipo Estatístico | Domínio | Classes / Escala Semântica | Definição Operacional | Papel Analítico |
+|----------|----------------|--------|----------------------------|----------------------|-----------------|
+| UID | Numérica discreta | [1, 10000] | — | Identificador único de cada registo | Identificador (não preditivo) |
+| Product ID | Categórica nominal | — | L / M / H + número de série | Identificação do produto com variante de qualidade | Identificador (não preditivo) |
+| Type | Categórica nominal | {L, M, H} | L = Low, M = Medium, H = High | Tipo de produto (nível de qualidade) | Operacional |
+| Air temperature [K] | Numérica contínua | ~[295, 305] | — | Temperatura ambiente da máquina | Sensor térmico |
+| Process temperature [K] | Numérica contínua | ~[305, 315] | — | Temperatura do processo industrial | Sensor térmico |
+| Rotational speed [rpm] | Numérica discreta | ~[1200, 3000] | — | Velocidade de rotação da máquina | Sensor mecânico |
+| Torque [Nm] | Numérica contínua | ~[3, 80] | — | Binário aplicado durante o funcionamento | Sensor mecânico |
+| Tool wear [min] | Numérica discreta | [0, 250] | — | Tempo de desgaste acumulado da ferramenta | Estado do equipamento |
+| Machine failure | Categórica binária | {0,1} | 0 = normal, 1 = falha | Indica se ocorreu falha na máquina | Variável alvo |
+| TWF | Categórica binária | {0,1} | Tool Wear Failure | Falha devido a desgaste excessivo da ferramenta | Tipo de falha |
+| HDF | Categórica binária | {0,1} | Heat Dissipation Failure | Falha por dissipação de calor insuficiente | Tipo de falha |
+| PWF | Categórica binária | {0,1} | Power Failure | Falha devido a potência inadequada | Tipo de falha |
+| OSF | Categórica binária | {0,1} | Overstrain Failure | Falha por esforço excessivo | Tipo de falha |
+| RNF | Categórica binária | {0,1} | Random Failure | Falha aleatória sem padrão definido | Tipo de falha |
+
 ## 5. Conclusões da Fase de Exploração
 *O que aprenderam sobre o dataset que não sabiam no final do Milestone 1? Os dados são suficientes
 para avançar para a modelação?*
