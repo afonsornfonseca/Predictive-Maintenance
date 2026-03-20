@@ -46,9 +46,9 @@ A nossa estratégia foi a manutenção integral de todos os outliers, não aplic
 ### 3.2. Criação de Novos Atributos
 Com base no conhecimento do domínio (manutenção preditiva e física mecânica), criámos duas novas variáveis a partir dos dados originais para ajudar o modelo a capturar padrões mais complexos de desgaste e esforço do equipamento:
 
-Nova Variável Temp_diff: Criámos esta variável calculando a diferença exata entre a temperatura do processo e a temperatura ambiente (Process temperature [K] - Air temperature [K]). O objetivo desta métrica é capturar o esforço térmico da máquina e a sua eficiência na dissipação de calor, o que ajuda o algoritmo a identificar limiares críticos que despoletam avarias por sobreaquecimento.
+* **Nova Variável Temp_diff:** Criámos esta variável calculando a diferença exata entre a temperatura do processo e a temperatura ambiente (Process temperature [K] - Air temperature [K]). O objetivo desta métrica é capturar o esforço térmico da máquina e a sua eficiência na dissipação de calor, o que ajuda o algoritmo a identificar limiares críticos que despoletam avarias por sobreaquecimento.
 
-Nova Variável Power: Criámos esta métrica através do produto entre o binário e a velocidade de rotação (Torque [Nm] * Rotational speed [rpm]). Esta variável representa a potência mecânica global exigida ao equipamento num dado instante. Ao fundir estas duas grandezas numa só, facilitamos ao modelo a identificação de picos de esforço ou quebras de energia que estão diretamente na origem das falhas de potência.
+* **Nova Variável Power:** Criámos esta métrica através do produto entre o binário e a velocidade de rotação (Torque [Nm] * Rotational speed [rpm]). Esta variável representa a potência mecânica global exigida ao equipamento num dado instante. Ao fundir estas duas grandezas numa só, facilitamos ao modelo a identificação de picos de esforço ou quebras de energia que estão diretamente na origem das falhas de potência.
 
 Validação de Relevância:
 Após a criação destes novos atributos, executámos o método .corr() para verificar a correlação linear entre a Temp_diff, a Power e a variável alvo Machine failure. Esta validação confirmou que estas novas features físicas possuem poder preditivo e fornecem sinais úteis para o modelo de Machine Learning.
