@@ -42,8 +42,7 @@ A nossa estratégia foi a manutenção integral de todos os outliers, não aplic
 ## 3. Engenharia de Atributos (Feature Engineering)
 ### 3.1. Transformações Realizadas
 * **Encoding:** Convertemos a variável categórica de texto Type em formato numérico utilizando Ordinal/Label Encoding. Uma vez que esta variável representa uma hierarquia lógica de qualidade das ferramentas, mapeámos as categorias com pesos crescentes: L (Low) = 0, M (Medium) = 1 e H (High) = 2. A coluna original em formato texto foi posteriormente removida, resultando na nova variável Type_Encoded.
-* **Escalonamento:** (Ex: "Aplicámos o StandardScaler nas variáveis numéricas para que todas
-fiquem na mesma escala.")
+* **Escalonamento:** Aplicámos o método StandardScaler às cinco variáveis preditoras contínuas do dataset (Air temperature [K], Process temperature [K], Rotational speed [rpm], Torque [Nm] e Tool wear [min]). Esta transformação reajustou os dados para apresentarem uma média de 0 e um desvio padrão de 1. Esta etapa foi fundamental para colocar todas as métricas na mesma escala de grandeza, garantindo que os futuros algoritmos de Machine Learning não atribuam um peso desproporcional à "Velocidade de Rotação" (cujos valores absolutos chegam aos 2800) em detrimento do "Binário" (cujos valores rondam os 40). As variáveis binárias relativas às falhas e a recém-criada Type_Encoded foram intencionalmente excluídas deste escalonamento para preservarem a sua correta interpretação matemática.
 ### 3.2. Criação de Novos Atributos
 *Descrevam as variáveis que criaram para ajudar o modelo.*
 * **Nova Variável [Nome]:** (Ex: "Criámos a 'Tenure_Per_Year' que divide o tempo de contrato
