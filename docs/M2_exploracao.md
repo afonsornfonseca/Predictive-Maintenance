@@ -41,7 +41,7 @@ A nossa estratégia foi a manutenção integral de todos os outliers, não aplic
 
 ## 3. Engenharia de Atributos (Feature Engineering)
 ### 3.1. Transformações Realizadas
-* **Encoding:** (Ex: "Convertemos a variável 'Género' em numérica usando One-Hot Encoding.")
+* **Encoding:** Convertemos a variável categórica de texto Type em formato numérico utilizando Ordinal/Label Encoding. Uma vez que esta variável representa uma hierarquia lógica de qualidade das ferramentas, mapeámos as categorias com pesos crescentes: L (Low) = 0, M (Medium) = 1 e H (High) = 2. A coluna original em formato texto foi posteriormente removida, resultando na nova variável Type_Encoded.
 * **Escalonamento:** (Ex: "Aplicámos o StandardScaler nas variáveis numéricas para que todas
 fiquem na mesma escala.")
 ### 3.2. Criação de Novos Atributos
