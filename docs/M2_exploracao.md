@@ -44,9 +44,15 @@ A nossa estratégia foi a manutenção integral de todos os outliers, não aplic
 * **Encoding:** Convertemos a variável categórica de texto Type em formato numérico utilizando Ordinal/Label Encoding. Uma vez que esta variável representa uma hierarquia lógica de qualidade das ferramentas, mapeámos as categorias com pesos crescentes: L (Low) = 0, M (Medium) = 1 e H (High) = 2. A coluna original em formato texto foi posteriormente removida, resultando na nova variável Type_Encoded.
 * **Escalonamento:** Aplicámos o método StandardScaler às cinco variáveis preditoras contínuas do dataset (Air temperature [K], Process temperature [K], Rotational speed [rpm], Torque [Nm] e Tool wear [min]). Esta transformação reajustou os dados para apresentarem uma média de 0 e um desvio padrão de 1. Esta etapa foi fundamental para colocar todas as métricas na mesma escala de grandeza, garantindo que os futuros algoritmos de Machine Learning não atribuam um peso desproporcional à "Velocidade de Rotação" (cujos valores absolutos chegam aos 2800) em detrimento do "Binário" (cujos valores rondam os 40). As variáveis binárias relativas às falhas e a recém-criada Type_Encoded foram intencionalmente excluídas deste escalonamento para preservarem a sua correta interpretação matemática.
 ### 3.2. Criação de Novos Atributos
-*Descrevam as variáveis que criaram para ajudar o modelo.*
-* **Nova Variável [Nome]:** (Ex: "Criámos a 'Tenure_Per_Year' que divide o tempo de contrato
-pela idade do cliente.")
+Com base no conhecimento do domínio (manutenção preditiva e física mecânica), criámos duas novas variáveis a partir dos dados originais para ajudar o modelo a capturar padrões mais complexos de desgaste e esforço do equipamento:
+
+Nova Variável Temp_diff: Criámos esta variável calculando a diferença exata entre a temperatura do processo e a temperatura ambiente (Process temperature [K] - Air temperature [K]). O objetivo desta métrica é capturar o esforço térmico da máquina e a sua eficiência na dissipação de calor, o que ajuda o algoritmo a identificar limiares críticos que despoletam avarias por sobreaquecimento.
+
+Nova Variável Power: Criámos esta métrica através do produto entre o binário e a velocidade de rotação (Torque [Nm] * Rotational speed [rpm]). Esta variável representa a potência mecânica global exigida ao equipamento num dado instante. Ao fundir estas duas grandezas numa só, facilitamos ao modelo a identificação de picos de esforço ou quebras de energia que estão diretamente na origem das falhas de potência.
+
+Validação de Relevância:
+Após a criação destes novos atributos, executámos o método .corr() para verificar a correlação linear entre a Temp_diff, a Power e a variável alvo Machine failure. Esta validação confirmou que estas novas features físicas possuem poder preditivo e fornecem sinais úteis para o modelo de Machine Learning.
+
 ## 4. Dicionário de Dados Final (Pós-Processamento)
 *Listagem final das variáveis que serão entregues ao modelo na Fase 3.*
 ## Dicionário das variáveis
