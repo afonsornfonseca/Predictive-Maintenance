@@ -83,7 +83,27 @@ De modo a garantir a robustez do modelo preditivo e a qualidade do processo de a
 
 
 ## 5. Conclusões da Fase de Exploração
-*O que aprenderam sobre o dataset que não sabiam no final do Milestone 1? Os dados são suficientes
-para avançar para a modelação?*
+
+### 5.1. O que aprendemos sobre o dataset face à Milestone 1?
+
+Durante a Milestone 1, a compreensão do conjunto de dados era predominantemente teórica e estrutural. A Análise Exploratória de Dados (EDA) conduzida nesta segunda fase permitiu extrair conhecimento empírico e físico fundamental sobre a dinâmica operacional do equipamento:
+
+* **O Desafio da Avaliação (Desequilíbrio de Classes):** A quantificação exata da variável alvo revelou um desequilíbrio acentuado, com as falhas a representarem apenas 3,39% dos registos. Esta constatação evidenciou que métricas tradicionais, como a Exatidão (Accuracy), serão estatisticamente ilusórias na fase de modelação. Estabeleceu-se assim a necessidade de focar a avaliação em métricas como o F1-Score e o Recall para aferir a real capacidade preditiva sobre a classe minoritária.
+* **Dinâmica Termo-Mecânica e Variáveis Derivadas:** Ao contrário da observação isolada das variáveis na fase inicial, compreendemos a interação física entre elas. O cálculo da variável `Temp_diff` provou que a máquina opera consistentemente com uma temperatura de processo superior à temperatura ambiente (num intervalo médio de 8 a 12 Kelvin). Simultaneamente, confirmou-se que o binário (Torque) atua como o elo central de esforço, apresentando uma forte correlação negativa com a rotação, o que motivou a criação da métrica de potência global (`Power`).
+* **O Valor Preditivo dos Outliers:** Concluiu-se que os valores extremos nas distribuições (como os picos de rotação na ordem das 2886 rpm) não constituem ruído informacional ou erros de calibração dos sensores. Representam assinaturas mecânicas autênticas de picos de stress que antecedem avarias por sobrecarga e potência, o que justificou plenamente a sua manutenção no dataset.
+* **O Risco de Fuga de Dados (Data Leakage):** Percebemos que a presença das variáveis binárias de modos de falha específicos (TWF, HDF, PWF, OSF e RNF) inviabilizaria o treino correto do algoritmo para a variável alvo (Machine failure), provocando fuga de dados. A sua remoção tornou-se um passo metodológico crítico e imprevisto na Milestone 1.
+
+### 5.2. Os dados são suficientes para avançar para a modelação?
+
+Sim, os dados demonstraram ser robustos e encontram-se rigorosamente preparados para avançar para a fase de modelação (Fase 3). O processo de preparação permitiu transitar de um registo operacional bruto para uma matriz analítica otimizada. 
+
+Para atingir este estado de prontidão, garantiu-se a inexistência de valores nulos e executaram-se as seguintes transformações:
+1. **Redução de Ruído:** Eliminação de identificadores desprovidos de valor preditivo (UDI e Product ID).
+2. **Prevenção de Fuga de Dados:** Eliminação das subcategorias determinísticas de falha.
+3. **Conversão Numérica Integral:** Transformação da variante categórica de qualidade do produto através da aplicação de Ordinal Encoding (Type_Encoded).
+4. **Padronização Matemática:** Aplicação do StandardScaler às variáveis contínuas, mitigando a discrepância de escalas (milhares nas rotações face a dezenas no binário) e prevenindo o enviesamento de algoritmos baseados em distância.
+5. **Enriquecimento do Modelo:** Injeção de conhecimento de domínio através das novas métricas físicas (Temp_diff e Power).
+
+Em síntese, o conjunto de dados processado reúne todas as condições técnicas, matemáticas e físicas para o treino de algoritmos preditivos. O principal desafio analítico reservado para a próxima etapa consistirá na implementação de técnicas de reamostragem ou ajuste de pesos (class weights) para mitigar o severo desequilíbrio da variável alvo.
 ---
-*Data de última atualização: [DD/MM/AAAA]* 
+*Data de última atualização: [24/03/2026]* 
