@@ -103,6 +103,7 @@ Para atingir este estado de prontidão, garantiu-se a inexistência de valores n
 3. **Conversão Numérica Integral:** Transformação da variante categórica de qualidade do produto através da aplicação de Ordinal Encoding (Type_Encoded).
 4. **Padronização Matemática:** Aplicação do StandardScaler às variáveis contínuas, mitigando a discrepância de escalas (milhares nas rotações face a dezenas no binário) e prevenindo o enviesamento de algoritmos baseados em distância.
 5. **Enriquecimento do Modelo:** Injeção de conhecimento de domínio através das novas métricas físicas (Temp_diff e Power).
+
 Em síntese, o conjunto de dados processado reúne todas as condições técnicas, matemáticas e físicas para o treino de algoritmos preditivos. O principal desafio analítico reservado para a próxima etapa consistirá na implementação de técnicas de reamostragem ou ajuste de pesos (class weights) para mitigar o severo desequilíbrio da variável alvo.
----
+
 *Data de última atualização: [24/03/2026]* 
