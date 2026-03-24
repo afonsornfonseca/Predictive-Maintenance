@@ -64,17 +64,20 @@ De modo a garantir a robustez do modelo preditivo e a qualidade do processo de a
 *Listagem final das variáveis que serão entregues ao modelo na Fase 3.*
 ## Dicionário das variáveis
 
+## 4. Dicionário de Dados Final (Pós-Processamento)
+*Listagem final das variáveis que serão entregues ao modelo na Fase 3, após limpeza, transformação e engenharia de atributos.*
+
 | Variável | Tipo Estatístico | Domínio | Classes / Escala Semântica | Definição Operacional | Papel Analítico |
 |----------|----------------|--------|----------------------------|----------------------|-----------------|
-| Type | Categórica nominal | {L, M, H} | L = Low, M = Medium, H = High | Tipo de produto (nível de qualidade) | Operacional |
-| Air temperature [K] | Numérica contínua | ~[295, 305] | — | Temperatura ambiente da máquina | Sensor térmico |
-| Process temperature [K] | Numérica contínua | ~[305, 315] | — | Temperatura do processo industrial | Sensor térmico |
-| Rotational speed [rpm] | Numérica discreta | ~[1200, 3000] | — | Velocidade de rotação da máquina | Sensor mecânico |
-| Torque [Nm] | Numérica contínua | ~[3, 80] | — | Binário aplicado durante o funcionamento | Sensor mecânico |
-| Tool wear [min] | Numérica discreta | [0, 250] | — | Tempo de desgaste acumulado da ferramenta | Estado do equipamento |
-| Machine failure | Categórica binária | {0,1} | 0 = normal, 1 = falha | Indica se ocorreu falha na máquina | Variável alvo |
-| Temp_diff | Numérica contínua | ~[-5, 5] | — | Diferença entre a temperatura do processo e a temperatura ambiente (Process temperature - Air temperature) | Variável derivada (feature engineering) |                    
-| Power    | Numérica contínua | ~[3000, 240000] | — | Potência estimada da máquina, calculada como o produto entre o torque e a velocidade de rotação (Torque × Rotational speed) | Variável derivada (feature engineering) |
+| Air temperature [K] | Numérica contínua | Normalizado (~[-3, 3]) | Média = 0, DP = 1 | Temperatura ambiente da máquina (escalonada) | Sensor térmico |
+| Process temperature [K] | Numérica contínua | Normalizado (~[-3, 3]) | Média = 0, DP = 1 | Temperatura do processo industrial (escalonada) | Sensor térmico |
+| Rotational speed [rpm] | Numérica contínua | Normalizado (~[-3, 3]) | Média = 0, DP = 1 | Velocidade de rotação da máquina (escalonada) | Sensor mecânico |
+| Torque [Nm] | Numérica contínua | Normalizado (~[-3, 3]) | Média = 0, DP = 1 | Binário aplicado durante o funcionamento (escalonado) | Sensor mecânico |
+| Tool wear [min] | Numérica contínua | Normalizado (~[-3, 3]) | Média = 0, DP = 1 | Tempo de desgaste acumulado da ferramenta (escalonado) | Estado do equipamento |
+| Machine failure | Categórica binária | {0, 1} | 0 = normal, 1 = falha | Indica se ocorreu falha geral na máquina | Variável alvo |
+| Type_Encoded | Numérica discreta | {0, 1, 2} | 0 = L, 1 = M, 2 = H | Tipo de produto (nível de qualidade) após Ordinal Encoding | Operacional |
+| Temp_diff | Numérica contínua | ~[8, 12] | Escala original (Kelvin) | Diferença entre a temperatura do processo e a temperatura ambiente | Variável derivada (Feature Engineering) |
+| Power | Numérica contínua | ~[3000, 240000] | Escala original (W) | Potência estimada da máquina (Torque × Rotational speed) | Variável derivada (Feature Engineering) |
 
 
 
