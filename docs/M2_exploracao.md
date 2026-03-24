@@ -68,11 +68,7 @@ Após a criação destes novos atributos, executámos o método .corr() para ver
 | Torque [Nm] | Numérica contínua | ~[3, 80] | — | Binário aplicado durante o funcionamento | Sensor mecânico |
 | Tool wear [min] | Numérica discreta | [0, 250] | — | Tempo de desgaste acumulado da ferramenta | Estado do equipamento |
 | Machine failure | Categórica binária | {0,1} | 0 = normal, 1 = falha | Indica se ocorreu falha na máquina | Variável alvo |
-| TWF | Categórica binária | {0,1} | Tool Wear Failure | Falha devido a desgaste excessivo da ferramenta | Tipo de falha |
-| HDF | Categórica binária | {0,1} | Heat Dissipation Failure | Falha por dissipação de calor insuficiente | Tipo de falha |
-| PWF | Categórica binária | {0,1} | Power Failure | Falha devido a potência inadequada | Tipo de falha |
-| OSF | Categórica binária | {0,1} | Overstrain Failure | Falha por esforço excessivo | Tipo de falha |
-| RNF | Categórica binária | {0,1} | Random Failure | Falha aleatória sem padrão definido | Tipo de falha |
+
 
 ## 5. Conclusões da Fase de Exploração
 *O que aprenderam sobre o dataset que não sabiam no final do Milestone 1? Os dados são suficientes
