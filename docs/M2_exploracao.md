@@ -60,12 +60,10 @@ De modo a garantir a robustez do modelo preditivo e a qualidade do processo de a
 
 * Remoção de Variáveis com Fuga de Dados (Data Leakage): Numa etapa subsequente, foram eliminadas as colunas correspondentes aos modos de falha determinísticos específicos (TWF, HDF, PWF, OSF e RNF). Sendo a variável alvo a classificação binária geral Machine failure, a presença destas subcategorias no conjunto de treino provocaria um fenómeno severo de data leakage (fuga de dados). O modelo aprenderia a mapear a avaria apoiando-se exclusivamente na leitura destes rótulos diretos, perdendo a necessidade e a capacidade de extrair os verdadeiros padrões de correlação subjacentes às grandezas físicas e operacionais (temperaturas, velocidade, binário e desgaste).
 
-## 4. Dicionário de Dados Final (Pós-Processamento)
-*Listagem final das variáveis que serão entregues ao modelo na Fase 3.*
-## Dicionário das variáveis
 
 ## 4. Dicionário de Dados Final (Pós-Processamento)
 *Listagem final das variáveis que serão entregues ao modelo na Fase 3, após limpeza, transformação e engenharia de atributos.*
+## Dicionário das variáveis
 
 | Variável | Tipo Estatístico | Domínio | Classes / Escala Semântica | Definição Operacional | Papel Analítico |
 |----------|----------------|--------|----------------------------|----------------------|-----------------|
