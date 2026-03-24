@@ -59,8 +59,6 @@ Após a criação destes novos atributos, executámos o método .corr() para ver
 
 | Variável | Tipo Estatístico | Domínio | Classes / Escala Semântica | Definição Operacional | Papel Analítico |
 |----------|----------------|--------|----------------------------|----------------------|-----------------|
-| UID | Numérica discreta | [1, 10000] | — | Identificador único de cada registo | Identificador (não preditivo) |
-| Product ID | Categórica nominal | — | L / M / H + número de série | Identificação do produto com variante de qualidade | Identificador (não preditivo) |
 | Type | Categórica nominal | {L, M, H} | L = Low, M = Medium, H = High | Tipo de produto (nível de qualidade) | Operacional |
 | Air temperature [K] | Numérica contínua | ~[295, 305] | — | Temperatura ambiente da máquina | Sensor térmico |
 | Process temperature [K] | Numérica contínua | ~[305, 315] | — | Temperatura do processo industrial | Sensor térmico |
