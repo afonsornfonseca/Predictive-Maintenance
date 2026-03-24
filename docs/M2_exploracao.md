@@ -68,10 +68,8 @@ Após a criação destes novos atributos, executámos o método .corr() para ver
 | Torque [Nm] | Numérica contínua | ~[3, 80] | — | Binário aplicado durante o funcionamento | Sensor mecânico |
 | Tool wear [min] | Numérica discreta | [0, 250] | — | Tempo de desgaste acumulado da ferramenta | Estado do equipamento |
 | Machine failure | Categórica binária | {0,1} | 0 = normal, 1 = falha | Indica se ocorreu falha na máquina | Variável alvo |
-| Variável  | Tipo Estatístico  | Domínio  | Classes / Escala Semântica | Definição Operacional                                                                                      | Papel Analítico                         |
-| Temp_diff | Numérica contínua | ~[-5, 5] | —                          | Diferença entre a temperatura do processo e a temperatura ambiente (Process temperature - Air temperature) | Variável derivada (feature engineering) |
-| Variável | Tipo Estatístico  | Domínio         | Classes / Escala Semântica | Definição Operacional                                                                                                       | Papel Analítico                         
-| Power    | Numérica contínua | ~[3000, 240000] | —                          | Potência estimada da máquina, calculada como o produto entre o torque e a velocidade de rotação (Torque × Rotational speed) | Variável derivada (feature engineering) |
+| Temp_diff | Numérica contínua | ~[-5, 5] | — | Diferença entre a temperatura do processo e a temperatura ambiente (Process temperature - Air temperature) | Variável derivada (feature engineering) |                    
+| Power    | Numérica contínua | ~[3000, 240000] | — | Potência estimada da máquina, calculada como o produto entre o torque e a velocidade de rotação (Torque × Rotational speed) | Variável derivada (feature engineering) |
 
 
 
