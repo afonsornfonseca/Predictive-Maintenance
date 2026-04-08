@@ -15,7 +15,10 @@ A estrutura deste projeto segue as boas práticas de Ciência de Dados e Engenha
 * **`requirements.txt`**: Ficheiro de configuração com as bibliotecas necessárias.
 ## 1. Iniciação (Milestone 1)
 ### Contexto e Problema de Negócio
-[Descreve o problema que pretendem resolver. Qual é o desafio da empresa ou organização?]
+O presente projeto insere-se no contexto da indústria, onde a operação contínua e eficiente dos equipamentos é fundamental para garantir produtividade e controlo de custos.
+Falhas inesperadas em máquinas industriais podem originar paragens não planeadas, aumento de custos de manutenção e perdas significativas de produção.
+Neste contexto, o principal desafio consiste em antecipar a ocorrência de falhas com base em dados operacionais, permitindo uma abordagem de manutenção mais eficiente e preventiva.
+Assim, este projeto pretende explorar dados de funcionamento de máquinas industriais com o objetivo de prever a ocorrência de falhas e apoiar a tomada de decisão.
 ### Objetivos do Projeto
 * **Objetivo 1:** [Ex: Prever a rotatividade de clientes]
 * **Objetivo 2:** [Ex: Identificar os principais fatores de influência]
