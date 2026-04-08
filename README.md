@@ -37,7 +37,8 @@ Assim, este projeto pretende explorar dados de funcionamento de máquinas indust
 
 *Detalhes completos disponíveis em* `docs/M2_exploracao.md`.
 ### Principais Conclusões (EDA)
-> *Dica: Insere aqui o gráfico mais importante do projeto.*
+<img width="1238" height="974" alt="image" src="https://github.com/user-attachments/assets/7366431c-e5a6-4c3f-9b59-f21f661d850e" />
+
 * **Ponto-chave:** [Ex: Identificámos que o fator X influencia em 40% o resultado Y, por aplicação
 do método ganho de informação]
 ## 3. Modelação (Milestone 3)
