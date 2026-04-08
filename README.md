@@ -39,8 +39,15 @@ Assim, este projeto pretende explorar dados de funcionamento de máquinas indust
 ### Principais Conclusões (EDA)
 <img width="1238" height="974" alt="image" src="https://github.com/user-attachments/assets/7366431c-e5a6-4c3f-9b59-f21f661d850e" />
 
-* **Ponto-chave:** [Ex: Identificámos que o fator X influencia em 40% o resultado Y, por aplicação
-do método ganho de informação]
+* **Ponto-chave:** ### Principais Conclusões (EDA)
+
+- O dataset apresenta um forte desbalanceamento, com predominância da classe "não falha".
+- A variável **Torque** apresenta uma relação positiva com a ocorrência de falhas.
+- A variável **Power** revelou uma correlação negativa relevante com a variável alvo.
+- As variáveis de temperatura apresentam baixa influência direta na ocorrência de falhas.
+- Foi identificada uma forte correlação entre **Rotational speed** e **Torque**, indicando possível redundância.
+
+> Os resultados obtidos permitiram compreender melhor os fatores que influenciam a ocorrência de falhas e orientar as decisões de modelação.
 ## 3. Modelação (Milestone 3)
 ### Abordagem Técnica
 * **Modelos:** [Ex: Random Forest e XGBoost]
