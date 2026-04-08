@@ -16,7 +16,7 @@ Para antecipar avarias industriais, o projeto visa tornar transparentes para o m
 
 A fase de exploração de dados (EDA) procurará ainda responder às seguintes questões de investigação, que apresentam um impacto direto na compreensão da operação mecânica e na identificação das causas de avaria:
 
-De que forma a variante de qualidade do produto (L, M, H) influencia a taxa de adição de desgaste à ferramenta (Tool wear) e altera os limites críticos de falha por sobrecarga (OSF)?
+De que forma a variante de qualidade da máquina (L, M, H) influencia a taxa de adição de desgaste à ferramenta (Tool wear) e altera os limites críticos de falha por sobrecarga (OSF)?
 
 Qual a correlação entre a velocidade de rotação e o binário (Torque) nos cenários em que a potência resultante ultrapassa os limites de operação segura (< 3500 W ou > 9000 W), causando uma falha de potência (PWF)?
 
