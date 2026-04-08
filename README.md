@@ -1,50 +1,48 @@
-# Manutenção Preditiva em Indústria
-
-> **Previsão de falhas de máquinas através de dados de sensores para evitar paragens não planeadas.**
-
-![Status do Projeto](https://img.shields.io/badge/Status-Em_Desenvolvimento-yellow)
-![Python](https://img.shields.io/badge/Python-3.8%2B-blue)
-
-## Sobre o Projeto
-
-Na indústria 4.0, o tempo de inatividade não planeado custa milhões. A **Manutenção Preditiva** é a solução chave para este problema, permitindo que as empresas intervenham nas máquinas antes que estas avariem, baseando-se em dados reais e não em estimativas temporais.
-
-Este projeto utiliza técnicas de **Machine Learning** e análise de dados de sensores para prever a probabilidade de falha de equipamentos. O objetivo principal é criar um modelo capaz de distinguir entre o funcionamento normal e estados de pré-falha, analisando variáveis como temperatura, vibração (inferida), rotação e torque.
-
-### Objetivos
-* **O Problema:** Prever *quando* e *se* uma máquina vai avariar com base em leituras de sensores.
-* **O Valor:** Redução de custos operacionais e prevenção de paragens críticas na linha de produção.
-* **O Desafio Técnico:** Análise de correlações complexas entre múltiplos sensores e deteção de padrões em dados desbalanceados.
-
----
-
-## O Conjunto de Dados (Dataset)
-
-Utilizamos o **AI4I 2020 Predictive Maintenance Dataset**, disponibilizado pelo UCI Machine Learning Repository. Este é um dataset sintético que reflete dados reais de manutenção preditiva na indústria.
-
-* **Fonte:** [UCI Machine Learning Repository - AI4I 2020](https://archive.ics.uci.edu/dataset/601/ai4i+2020+predictive+maintenance+dataset)
-* **Tamanho:** 10.000 instâncias (linhas).
-* **Features Principais:**
-    * `Air temperature [K]`: Temperatura ambiente.
-    * `Process temperature [K]`: Temperatura do processo.
-    * `Rotational speed [rpm]`: Rotação do fuso.
-    * `Torque [Nm]`: Torque aplicado.
-    * `Tool wear [min]`: Desgaste da ferramenta (em minutos).
-* **Target (Alvo):** `Machine failure`.
-
----
-
-## Tecnologias Utilizadas
-
-* **Linguagem:** Python
-* **Análise de Dados:** Pandas, NumPy
-* **Visualização:** Matplotlib, Seaborn
-* **Machine Learning:** Scikit-Learn (Random Forest, XGBoost, etc.)
-* **Ambiente:** Jupyter Notebooks
-
----
-
-## Referências
-
-AI4I 2020 Predictive Maintenance Dataset. (2020). *UCI Machine Learning Repository*. https://archive.ics.uci.edu/ml/datasets/AI4I+2020+Predictive+Maintenance+Dataset
-
+# [Título do Projeto de Ciência de Dados]
+## Identificação da Equipa
+* **Grupo nº:** [Número]
+* **Membros:**
+* [Nome do Aluno 1] - [Nº de Estudante]
+* [Nome do Aluno 2] - [Nº de Estudante]
+* [Nome do Aluno 3] - [Nº de Estudante]
+## Organização do Repositório
+A estrutura deste projeto segue as boas práticas de Ciência de Dados e Engenharia de Software:
+* **`data/`**: Armazenamento de dados (dados brutos em `raw/` e processados em `processed/`).
+* **`docs/`**: Documentação técnica detalhada dividida por Milestones (M1, M2 e M3).
+* **`notebooks/`**: Jupyter Notebooks para experimentação, limpeza e modelação.
+* **`src/`**: Código-fonte modular (scripts `.py`) para funções reutilizáveis.
+* **`reports/`**: Relatórios finais, apresentações e exportação de figuras (`figures/`).
+* **`requirements.txt`**: Ficheiro de configuração com as bibliotecas necessárias.
+## 1. Iniciação (Milestone 1)
+### Contexto e Problema de Negócio
+[Descreve o problema que pretendem resolver. Qual é o desafio da empresa ou organização?]
+### Objetivos do Projeto
+* **Objetivo 1:** [Ex: Prever a rotatividade de clientes]
+* **Objetivo 2:** [Ex: Identificar os principais fatores de influência]
+### Fonte de Dados
+* **Dataset:** [Link para a fonte ou descrição dos ficheiros]
+* **Dimensão:** [Ex: 10.000 linhas, 15 colunas]
+## 2. Exploração (Milestone 2)
+### Limpeza e Preparação
+* [Breve resumo das ações de limpeza tomadas. Detalhes em `docs/M2_exploracao.md`]
+### Principais Conclusões (EDA)
+> *Dica: Insere aqui o gráfico mais importante do projeto.*
+* **Ponto-chave:** [Ex: Identificámos que o fator X influencia em 40% o resultado Y, por aplicação
+do método ganho de informação]
+## 3. Modelação (Milestone 3)
+### Abordagem Técnica
+* **Modelos:** [Ex: Random Forest e XGBoost]
+* **Métrica Principal:** [Ex: F1-Score ou RMSE]
+## 4. Finalização (Milestone 4)
+### Resposta ao Problema
+[Resumo da solução e como ela gera valor para o negócio.]
+### Recomendações de Inovação
+1. [Sugestão prática baseada nos resultados]
+## Como Reproduzir este Projeto
+1. Clone o repositório: `git clone [url-do-repo]`
+2. Instale as dependências: `pip install -r requirements.txt`
+3. Execute os notebooks na pasta `notebooks/` seguindo a ordem numérica.
+**Instituição:** Coimbra Business School | ISCAC
+**Curso:** Licenciatura em Ciência de Dados para a Gestão
+**Unidade Curricular:** Projeto em Ciência de Dados
+**Professor Responsável:** Dora Melo (dmelo@iscac.pt)
