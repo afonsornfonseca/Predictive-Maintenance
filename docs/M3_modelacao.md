@@ -1,8 +1,8 @@
 # Milestone 3: Modelação e Avaliação
 ## 1. Estratégia de Modelação
 *Descrevam como prepararam os dados para os algoritmos.*
-* **Divisão do dataset:** (p/ex.: "Utilizámos uma divisão de 70% para treino e 30% para teste
-com semente aleatória (random_state) fixa.")
+* **Divisão do dataset:**: Para preparar os dados para os algoritmos de Machine Learning, utilizámos uma divisão de 80% dos dados para treino (8000 instâncias) e 20% para teste (2000 instâncias). Para garantir a total reprodutibilidade dos resultados em execuções futuras, fixámos a semente aleatória (random_state=42).
+O passo técnico mais crítico nesta divisão foi a utilização do parâmetro de estratificação (stratify=y). Dada a natureza altamente desbalanceada da nossa variável alvo (apenas ~3,4% de avarias reais), a estratificação garantiu que esta proporção minoritária se mantivesse rigorosamente idêntica tanto no conjunto de treino como no conjunto de teste. Sem este passo, corríamos o risco estatístico de gerar um conjunto de teste sem falhas suficientes para uma avaliação fiável do modelo.
 * **Métrica de Sucesso:** (p/ex.: "A métrica principal escolhida foi o F1-Score, pois o nosso
 dataset é desequilibrado e queremos evitar falsos negativos.")
 ## 2. Experiências Realizadas
