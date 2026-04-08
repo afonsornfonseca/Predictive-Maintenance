@@ -27,7 +27,6 @@ Assim, este projeto pretende explorar dados de funcionamento de máquinas indust
 * **Dimensão:** 10.000 Instâncias, 14 Colunas
 ## 2. Exploração (Milestone 2)
 ### Limpeza e Preparação
-* ### Limpeza e Preparação
 
 - Remoção de variáveis irrelevantes (UID e Product ID).
 - Tratamento e validação dos tipos de dados.
