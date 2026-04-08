@@ -23,8 +23,8 @@ Assim, este projeto pretende explorar dados de funcionamento de máquinas indust
 * **Objetivo 1:** [Ex: Prever a rotatividade de clientes]
 * **Objetivo 2:** [Ex: Identificar os principais fatores de influência]
 ### Fonte de Dados
-* **Dataset:** [Link para a fonte ou descrição dos ficheiros]
-* **Dimensão:** [Ex: 10.000 linhas, 15 colunas]
+* **Dataset:** (https://www.kaggle.com/datasets/afonsornfonseca/ai4i-2020-predictive-maintenance)
+* **Dimensão:** 10.000 Instâncias, 14 Colunas
 ## 2. Exploração (Milestone 2)
 ### Limpeza e Preparação
 * [Breve resumo das ações de limpeza tomadas. Detalhes em `docs/M2_exploracao.md`]
