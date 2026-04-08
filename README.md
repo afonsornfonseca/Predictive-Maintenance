@@ -1,6 +1,6 @@
-# [Título do Projeto de Ciência de Dados]
+# Previsão de Falhas em Máquinas Industriais com Recurso a Machine Learning 
 ## Identificação da Equipa
-* **Grupo nº:** [Número]
+* **Grupo nº:** 3
 * **Membros:**
 * Bernardo Vieira - 2021124221
 * Artur Yakovenko - 2023138730
