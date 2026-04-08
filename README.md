@@ -39,7 +39,7 @@ Assim, este projeto pretende explorar dados de funcionamento de máquinas indust
 ### Principais Conclusões (EDA)
 <img width="1238" height="974" alt="image" src="https://github.com/user-attachments/assets/7366431c-e5a6-4c3f-9b59-f21f661d850e" />
 
-* **Ponto-chave:** ### Principais Conclusões (EDA)
+* **Ponto-chave:** Principais Conclusões (EDA)
 
 - O dataset apresenta um forte desbalanceamento, com predominância da classe "não falha".
 - A variável **Torque** apresenta uma relação positiva com a ocorrência de falhas.
