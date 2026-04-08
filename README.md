@@ -27,7 +27,16 @@ Assim, este projeto pretende explorar dados de funcionamento de máquinas indust
 * **Dimensão:** 10.000 Instâncias, 14 Colunas
 ## 2. Exploração (Milestone 2)
 ### Limpeza e Preparação
-* [Breve resumo das ações de limpeza tomadas. Detalhes em `docs/M2_exploracao.md`]
+* ### Limpeza e Preparação
+
+- Remoção de variáveis irrelevantes (UID e Product ID).
+- Tratamento e validação dos tipos de dados.
+- Criação de novas variáveis derivadas:
+  - **Temp_diff**: diferença entre temperatura do processo e temperatura do ar;
+  - **Power**: produto entre torque e velocidade de rotação.
+- Remoção de variáveis associadas a tipos de falha (TWF, HDF, PWF, OSF, RNF) para evitar data leakage.
+
+*Detalhes completos disponíveis em* `docs/M2_exploracao.md`.
 ### Principais Conclusões (EDA)
 > *Dica: Insere aqui o gráfico mais importante do projeto.*
 * **Ponto-chave:** [Ex: Identificámos que o fator X influencia em 40% o resultado Y, por aplicação
