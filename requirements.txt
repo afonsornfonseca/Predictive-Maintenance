@@ -1,1 +1,14 @@
+# Manipulação e análise de dados
+pandas==2.3.3  # Utilizado para leitura, limpeza e análise do dataset
 
+# Computação numérica
+numpy==2.0.2  # Utilizado para operações matemáticas e manipulação de arrays
+
+# Visualização de dados
+matplotlib==3.10.0  # Criação de gráficos base (histogramas, scatter plots, etc.)
+
+# Visualização estatística
+seaborn==0.13.2  # Criação de gráficos avançados e heatmaps
+
+# Machine Learning
+scikit-learn==1.6.1  # Implementação de modelos de ML e métricas de avaliação
