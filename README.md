@@ -20,8 +20,14 @@ Falhas inesperadas em máquinas industriais podem originar paragens não planead
 Neste contexto, o principal desafio consiste em antecipar a ocorrência de falhas com base em dados operacionais, permitindo uma abordagem de manutenção mais eficiente e preventiva.
 Assim, este projeto pretende explorar dados de funcionamento de máquinas industriais com o objetivo de prever a ocorrência de falhas e apoiar a tomada de decisão.
 ### Objetivos do Projeto
-* **Objetivo 1:** - Prever falhas em máquinas industriais.
-* **Objetivo 2:** - Identificar os principais fatores de influência.
+## Objetivos do Projeto
+
+- **Objetivo 1:** Desenvolver um modelo de classificação para prever falhas em máquinas industriais, atingindo um F1-Score mínimo de 0.85 até ao Milestone 3.
+
+- **Objetivo 2:** Criar novas variáveis relevantes (diferença térmica, potência e esforço de binário) e integrá-las na análise exploratória até ao Milestone 2.
+
+- **Objetivo 3:** Desenvolver um modelo capaz de identificar o tipo de falha, com uma accuracy superior a 80% até ao Milestone 4.
+
 ### Fonte de Dados
 * **Dataset:** (https://www.kaggle.com/datasets/afonsornfonseca/ai4i-2020-predictive-maintenance)
 * **Dimensão:** 10.000 Instâncias, 14 Colunas
