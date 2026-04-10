@@ -3,8 +3,12 @@
 *Descrevam como prepararam os dados para os algoritmos.*
 * **Divisão do dataset:**: Para preparar os dados para os algoritmos de Machine Learning, utilizámos uma divisão de 80% dos dados para treino (8000 instâncias) e 20% para teste (2000 instâncias). Para garantir a total reprodutibilidade dos resultados em execuções futuras, fixámos a semente aleatória (random_state=42).
 O passo técnico mais crítico nesta divisão foi a utilização do parâmetro de estratificação (stratify=y). Dada a natureza altamente desbalanceada da nossa variável alvo (apenas ~3,4% de avarias reais), a estratificação garantiu que esta proporção minoritária se mantivesse rigorosamente idêntica tanto no conjunto de treino como no conjunto de teste. Sem este passo, corríamos o risco estatístico de gerar um conjunto de teste sem falhas suficientes para uma avaliação fiável do modelo.
-* **Métrica de Sucesso:** (p/ex.: "A métrica principal escolhida foi o F1-Score, pois o nosso
-dataset é desequilibrado e queremos evitar falsos negativos.")
+* **Métrica de Sucesso:**
+A métrica principal eleita para avaliar o sucesso e a performance dos modelos foi o **F1-Score**, complementado pela métrica de **Recall**  e pela área sob a curva **ROC-AUC**. 
+
+A escolha destas métricas justifica-se pelo desequilíbrio das classes e foi imediatamente comprovada pela execução do nosso Modelo Baseline (Regressão Logística). O baseline obteve uma Exatidão (*Accuracy*) de 96,75%, o que, numa análise superficial, pareceria um excelente resultado. No entanto, o seu F1-Score foi de apenas 28,5% e o Recall de uns meros 19,1%. Isto significa que o modelo, apesar de acertar quase sempre, está apenas a prever a classe maioritária ("não falha") e a falhar redondamente na deteção das verdadeiras avarias (falsos negativos). 
+
+Num contexto de manutenção preditiva industrial, o custo de não prever uma falha (falso negativo, que resulta em paragem de produção e quebra da máquina) é muito superior ao custo de uma inspeção desnecessária (falso positivo). Por isso, o F1-Score (que equilibra *Precision* e *Recall*) é a única métrica que reflete a verdadeira viabilidade do nosso modelo para a resolução do problema de negócio.
 ## 2. Experiências Realizadas
 ### 2.1. Modelo Baseline
 *O ponto de partida simples.*
