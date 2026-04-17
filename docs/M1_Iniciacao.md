@@ -90,7 +90,7 @@ Desta forma, conclui-se que o dataset é eticamente apropriado para o desenvolvi
 | :--- | :--- | :--- |
 | M1: Iniciação |24/02/2026| Repositório estruturado e Plano de Projeto. |
 | M2: Exploração |25/03/2026| Notebook de EDA e Dados Processados. |
-| M3: Modelação | [Data] | Comparação de algoritmos e métricas. |
+| M3: Modelação | [23/04/2026] | Comparação de algoritmos e métricas. |
 | M4: Finalização| [Data] | Pitch e Relatório Final. |
 ---
 *Data de última atualização: [24/03/2026]*
