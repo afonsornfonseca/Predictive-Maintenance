@@ -3,6 +3,17 @@
 O setor da manufatura industrial encontra-se numa fase de transição acelerada impulsionada pela Indústria 4.0, onde a digitalização e a recolha contínua de dados operacionais através de sensores industriais (IoT) assumem um papel central. Neste cenário de alta competitividade, a eficiência operacional e a minimização de paragens não planeadas na linha de produção são fatores críticos para a sustentabilidade, cumprimento de prazos e rentabilidade das organizações.
 
 Tradicionalmente, a gestão da fiabilidade de equipamentos baseia-se em abordagens subotimizadas: a manutenção reativa (intervenção corretiva pós-falha), que resulta em paragens inesperadas e custos de reparação severos; ou a manutenção preventiva (intervenção calendarizada), que gera desperdício financeiro e de materiais ao descartar componentes que ainda possuem um ciclo de vida útil considerável. A transição para a Manutenção Preditiva, suportada por algoritmos de Machine Learning e pela análise multivariável de dados reais (como temperatura, binário e rotação), surge assim como a solução tecnológica imperativa para antecipar estados de pré-falha e otimizar a intervenção nos equipamentos.
+
+## 1.2 Metodologia
+Metodologia
+O desenvolvimento do projeto segue a metodologia CRISP-DM (Cross-Industry Standard Process for Data Mining), uma abordagem estruturada amplamente utilizada em projetos de Ciência de Dados.
+Esta metodologia organiza o trabalho nas seguintes fases:
+Compreensão do Problema: definição do objetivo e enquadramento do problema de negócio
+Compreensão dos Dados: análise inicial da estrutura, qualidade e variáveis do dataset
+Preparação dos Dados: limpeza, transformação e criação de novas variáveis
+Modelação: aplicação de algoritmos de Machine Learning
+Avaliação: análise do desempenho dos modelos com métricas adequadas
+
 ## 2. Objetivos SMART
 Para antecipar avarias industriais, o projeto visa tornar transparentes para o modelo de Machine Learning as causas subjacentes à variável alvo (Machine failure), modelando matematicamente cinco modos de falha independentes. A abordagem analítica rege-se pelos seguintes objetivos:
 
@@ -84,8 +95,13 @@ os identificadores presentes (por exemplo, Product ID) referem-se a produtos/má
 a finalidade do uso é académica e enquadrada no contexto de análise e modelação.
 Desta forma, conclui-se que o dataset é eticamente apropriado para o desenvolvimento do projeto e não requer procedimentos adicionais de anonimização.
 
+## 5. Referências
+Dataset: https://www.kaggle.com/datasets/afonsornfonseca/ai4i-2020-predictive-maintenance
+Chapman et al. (2000). CRISP-DM 1.0: Step-by-step data mining guide
+James et al. (2021). An Introduction to Statistical Learning
 
-## 5. Cronograma Interno
+
+## 6. Cronograma Interno
 | Fase | Data Limite | Entregável Esperado |
 | :--- | :--- | :--- |
 | M1: Iniciação |24/02/2026| Repositório estruturado e Plano de Projeto. |
