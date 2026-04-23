@@ -5,7 +5,7 @@
 
 * **Divisão do dataset:** Utilizámos uma divisão de **80% para treino (8000 instâncias) e 20% para teste (2000 instâncias)**, com semente aleatória fixa (`random_state=42`) para garantir total reprodutibilidade. O passo mais crítico foi o parâmetro `stratify=y`: dado o acentuado desequilíbrio da variável alvo (~3,4% de avarias reais), a estratificação garantiu que esta proporção minoritária se manteve rigorosamente idêntica em ambos os conjuntos. Sem este passo, corríamos o risco de gerar um conjunto de teste sem falhas suficientes para uma avaliação fiável. Foi ainda testada uma divisão alternativa 75/25 que confirmou a estabilidade dos resultados independentemente da proporção escolhida.
 
-* **Métrica de Sucesso:** A métrica principal eleita foi o **F1-Score**, complementado pelo **Recall** e pela **ROC-AUC**. A escolha foi imediatamente validada pelo nosso modelo baseline: a Regressão Logística obteve uma Accuracy de 96,75% — aparentemente excelente — mas com F1-Score de apenas **28,5%** e Recall de **19,1%**. O modelo limitava-se a prever sempre "não falha", ignorando completamente as avarias reais. Num contexto de manutenção preditiva industrial, o custo de um **falso negativo** (avaria não detetada → paragem de produção, dano no equipamento) é incomparavelmente superior ao custo de um **falso positivo** (inspeção desnecessária). O F1-Score é, portanto, a única métrica que reflete a viabilidade real do modelo para este problema de negócio.
+* **Métrica de Sucesso:** A métrica principal eleita foi o **F1-Score**, complementado pelo **Recall** e pela **ROC-AUC**. A escolha foi imediatamente validada pelo nosso modelo baseline: a Regressão Logística obteve uma Accuracy de 96,75%, aparentemente excelente, mas com F1-Score de apenas **28,5%** e Recall de **19,1%**. O modelo limitava-se a prever sempre "não falha", ignorando completamente as avarias reais. Num contexto de manutenção preditiva industrial, o custo de um **falso negativo** (avaria não detetada → paragem de produção, dano no equipamento) é incomparavelmente superior ao custo de um **falso positivo** (inspeção desnecessária). O F1-Score é, portanto, a única métrica que reflete a viabilidade real do modelo para este problema de negócio.
 
 ## 2. Experiências Realizadas
 ### 2.1. Modelo Baseline
@@ -45,7 +45,7 @@
 | `learning_rate` | [0.01, 0.05, 0.1] | Aprendizagem mais gradual e robusta |
 | `n_estimators` | [100, 200, 300] | Número de árvores a combinar |
 
-* **Melhoria obtida:** O F1-Score no conjunto de teste subiu de **57,8% para 75,2%** após o ajuste — um ganho de **+17,4 p.p.** A validação cruzada K-Fold (K=5) confirmou a robustez do modelo com F1-Score médio estável e baixo desvio padrão nas 5 dobras, provando que os resultados generalizam de forma consistente.
+* **Melhoria obtida:** O F1-Score no conjunto de teste subiu de **57,8% para 75,2%** após o ajuste, um ganho de **+17,4 p.p.** A validação cruzada K-Fold (K=5) confirmou a robustez do modelo com F1-Score médio estável e baixo desvio padrão nas 5 dobras, provando que os resultados generalizam de forma consistente.
 
 | Fase | F1-Score (Treino) | F1-Score (Teste) | Δ Teste |
 | :--- | :--- | :--- | :--- |
