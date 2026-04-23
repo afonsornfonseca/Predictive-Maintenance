@@ -15,7 +15,7 @@ A transição para a **Manutenção Preditiva** (*Predictive Maintenance*), supo
 
 ### O Dataset e a Variável Objetivo
 
-O presente projeto utiliza o dataset **AI4I 2020 Predictive Maintenance Dataset**, disponível no *Kaggle*, que simula dados operacionais de uma máquina industrial com 10.000 registos e 14 variáveis. A variável objetivo central é `Machine failure` — uma variável binária que indica se ocorreu ou não uma falha —, sendo complementada por cinco indicadores de tipos específicos de falha: desgaste da ferramenta (*TWF*), dissipação de calor (*HDF*), potência inadequada (*PWF*), esforço excessivo (*OSF*) e falha aleatória (*RNF*).
+O presente projeto utiliza o dataset **AI4I 2020 Predictive Maintenance Dataset**, disponível no *Kaggle*, que simula dados operacionais de uma máquina industrial com 10.000 registos e 14 variáveis. A variável objetivo central é `Machine failure`, uma variável binária que indica se ocorreu ou não uma falha, sendo complementada por cinco indicadores de tipos específicos de falha: desgaste da ferramenta (*TWF*), dissipação de calor (*HDF*), potência inadequada (*PWF*), esforço excessivo (*OSF*) e falha aleatória (*RNF*).
 
 A abordagem é **supervisionada**, uma vez que a variável objetivo está definida no conjunto de dados, permitindo treinar e avaliar modelos de classificação com base em exemplos rotulados de falha e não-falha.
 
@@ -27,15 +27,15 @@ Os objetivos do projeto seguem a lógica *SMART* — Específico, Mensurável, A
 
 **Objetivo 1:** Desenvolver um modelo de classificação binária que preveja a ocorrência de falha na variável `Machine failure`, atingindo um *F1-Score* mínimo de 0,85 na classe positiva (falha), com o objetivo de minimizar paragens operacionais não planeadas — a entregar no Milestone 3 (23/04/2026).
 
-> Este objetivo enquadra-se no problema de negócio central: antecipar a falha antes que esta ocorra. O *F1-Score* foi escolhido como métrica principal por penalizar tanto os falsos positivos como os falsos negativos, sendo adequado ao desequilíbrio de classes presente no *dataset* (~3,4% de falhas).
+Este objetivo enquadra-se no problema de negócio central: antecipar a falha antes que esta ocorra. O *F1-Score* foi escolhido como métrica principal por penalizar tanto os falsos positivos como os falsos negativos, sendo adequado ao desequilíbrio de classes presente no *dataset* (~3,4% de falhas).
 
 **Objetivo 2:** Construir uma *pipeline* de Engenharia de Variáveis que extraia, pelo menos, duas novas métricas físicas baseadas nas regras de operação do equipamento — nomeadamente a diferença térmica (relevante para a previsão de *HDF*) e a potência calculada em rad/s (relevante para *PWF*) —, a entregar no Milestone 2 (25/03/2026).
 
-> Este objetivo fundamenta-se nas regras físicas que determinam cada modo de falha no *dataset*. A criação explícita destas variáveis derivadas visa aumentar a capacidade preditiva dos modelos ao representar diretamente as relações causais entre os sensores e as falhas.
+Este objetivo fundamenta-se nas regras físicas que determinam cada modo de falha no *dataset*. A criação explícita destas variáveis derivadas visa aumentar a capacidade preditiva dos modelos ao representar diretamente as relações causais entre os sensores e as falhas.
 
 **Objetivo 3:** Desenvolver um modelo de classificação multiclasse capaz de distinguir e diagnosticar a causa raiz da falha entre os modos específicos (*TWF*, *HDF*, *PWF*, *OSF* e *RNF*), atingindo uma percentagem de Exatidão (*Accuracy*) superior a 80% — a apresentar no relatório final do Milestone 4.
 
-> Além de prever *se* ocorre uma falha (Objetivo 1), este objetivo visa identificar *qual* o tipo de falha, fornecendo informação acionável para a manutenção. Uma Exatidão superior a 80% foi definida como critério de sucesso realista, tendo em conta o nível de sobreposição entre algumas classes de falha e a reduzida dimensão de algumas delas.
+Além de prever *se* ocorre uma falha (Objetivo 1), este objetivo visa identificar *qual* o tipo de falha, fornecendo informação acionável para a manutenção. Uma Exatidão superior a 80% foi definida como critério de sucesso realista, tendo em conta o nível de sobreposição entre algumas classes de falha e a reduzida dimensão de algumas delas.
 
 ---
 
