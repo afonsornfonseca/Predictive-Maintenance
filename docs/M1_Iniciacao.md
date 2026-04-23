@@ -1,112 +1,157 @@
 # Milestone 1: Iniciação e Definição do Projeto
+
 ## 1. Descrição Detalhada do Problema
-O setor da manufatura industrial encontra-se numa fase de transição acelerada impulsionada pela Indústria 4.0, onde a digitalização e a recolha contínua de dados operacionais através de sensores industriais (IoT) assumem um papel central. Neste cenário de alta competitividade, a eficiência operacional e a minimização de paragens não planeadas na linha de produção são fatores críticos para a sustentabilidade, cumprimento de prazos e rentabilidade das organizações.
 
-Tradicionalmente, a gestão da fiabilidade de equipamentos baseia-se em abordagens subotimizadas: a manutenção reativa (intervenção corretiva pós-falha), que resulta em paragens inesperadas e custos de reparação severos; ou a manutenção preventiva (intervenção calendarizada), que gera desperdício financeiro e de materiais ao descartar componentes que ainda possuem um ciclo de vida útil considerável. A transição para a Manutenção Preditiva, suportada por algoritmos de Machine Learning e pela análise multivariável de dados reais (como temperatura, binário e rotação), surge assim como a solução tecnológica imperativa para antecipar estados de pré-falha e otimizar a intervenção nos equipamentos.
+### Contexto e Relevância
 
-## 1.2 Metodologia
-Metodologia
-O desenvolvimento do projeto segue a metodologia CRISP-DM (Cross-Industry Standard Process for Data Mining), uma abordagem estruturada amplamente utilizada em projetos de Ciência de Dados.
-Esta metodologia organiza o trabalho nas seguintes fases:
-Compreensão do Problema: definição do objetivo e enquadramento do problema de negócio
-Compreensão dos Dados: análise inicial da estrutura, qualidade e variáveis do dataset
-Preparação dos Dados: limpeza, transformação e criação de novas variáveis
-Modelação: aplicação de algoritmos de Machine Learning
-Avaliação: análise do desempenho dos modelos com métricas adequadas
+A manufatura industrial atravessa uma transformação profunda impulsionada pela Indústria 4.0, onde a recolha contínua de dados operacionais através de sensores IoT (*Internet of Things*) permite uma visibilidade sem precedentes sobre o estado dos equipamentos em tempo real. Neste contexto altamente competitivo, a minimização de paragens não planeadas na linha de produção é um fator crítico para a sustentabilidade e rentabilidade das organizações industriais.
+
+Tradicionalmente, a gestão da fiabilidade de equipamentos assenta em duas abordagens subótimas:
+
+- **Manutenção reativa** (*corrective maintenance*): intervenção apenas após a ocorrência de falha, o que resulta em paragens inesperadas, perdas de produção e custos de reparação elevados.
+- **Manutenção preventiva** (*preventive maintenance*): intervenção calendarizada com base em intervalos de tempo fixos, independentemente do estado real do equipamento, o que gera desperdício de recursos ao substituir componentes que ainda possuem vida útil considerável.
+
+A transição para a **Manutenção Preditiva** (*Predictive Maintenance*), suportada por algoritmos de *Machine Learning* e pela análise multivariável de dados de sensores (temperatura, binário e velocidade de rotação), surge como a solução tecnológica capaz de antecipar estados de pré-falha e otimizar a intervenção nos equipamentos.
+
+### O Dataset e a Variável Objetivo
+
+O presente projeto utiliza o dataset **AI4I 2020 Predictive Maintenance Dataset**, disponível no *Kaggle*, que simula dados operacionais de uma máquina industrial com 10.000 registos e 14 variáveis. A variável objetivo central é `Machine failure` — uma variável binária que indica se ocorreu ou não uma falha —, sendo complementada por cinco indicadores de tipos específicos de falha: desgaste da ferramenta (*TWF*), dissipação de calor (*HDF*), potência inadequada (*PWF*), esforço excessivo (*OSF*) e falha aleatória (*RNF*).
+
+A abordagem é **supervisionada**, uma vez que a variável objetivo está definida no conjunto de dados, permitindo treinar e avaliar modelos de classificação com base em exemplos rotulados de falha e não-falha.
+
+---
 
 ## 2. Objetivos SMART
-Para antecipar avarias industriais, o projeto visa tornar transparentes para o modelo de Machine Learning as causas subjacentes à variável alvo (Machine failure), modelando matematicamente cinco modos de falha independentes. A abordagem analítica rege-se pelos seguintes objetivos:
 
-**Objetivo 1:** Desenvolver um modelo de classificação binária para prever a ocorrência da variável geral de falha (Machine failure), atingindo um F1-Score mínimo de 0.85 na identificação de avarias, de modo a minimizar paragens operacionais não planeadas, até à entrega do Milestone 3.
+Os objetivos do projeto seguem a lógica *SMART* — Específico, Mensurável, Atingível, Relevante e Temporal — e visam tornar transparente para o modelo de *Machine Learning* as causas subjacentes à variável `Machine failure`, modelando matematicamente os modos de falha independentes presentes no *dataset*.
 
-**Objetivo 2:** Desenvolver uma pipeline de Engenharia de Variáveis que extraia três novas métricas físicas baseadas nas regras de operação do equipamento: diferença térmica (para previsão de HDF)e potência calculada em rad/s (para PWF) a entregar no Milestone 2.
+**Objetivo 1:** Desenvolver um modelo de classificação binária que preveja a ocorrência de falha na variável `Machine failure`, atingindo um *F1-Score* mínimo de 0,85 na classe positiva (falha), com o objetivo de minimizar paragens operacionais não planeadas — a entregar no Milestone 3 (23/04/2026).
 
-**Objetivo 3:** Treinar um algoritmo de classificação multiclasse capaz de distinguir e diagnosticar a causa raiz da avaria entre os modos específicos (TWF, HDF, PWF, e RNF) com uma Exatidão Global (Accuracy) superior a 80%, a apresentar no relatório final do Milestone 4.
+> Este objetivo enquadra-se no problema de negócio central: antecipar a falha antes que esta ocorra. O *F1-Score* foi escolhido como métrica principal por penalizar tanto os falsos positivos como os falsos negativos, sendo adequado ao desequilíbrio de classes presente no *dataset* (~3,4% de falhas).
 
-## Perguntas de Investigação
+**Objetivo 2:** Construir uma *pipeline* de Engenharia de Variáveis que extraia, pelo menos, duas novas métricas físicas baseadas nas regras de operação do equipamento — nomeadamente a diferença térmica (relevante para a previsão de *HDF*) e a potência calculada em rad/s (relevante para *PWF*) —, a entregar no Milestone 2 (25/03/2026).
 
-A fase de exploração de dados (EDA) procurará ainda responder às seguintes questões de investigação, que apresentam um impacto direto na compreensão da operação mecânica e na identificação das causas de avaria:
+> Este objetivo fundamenta-se nas regras físicas que determinam cada modo de falha no *dataset*. A criação explícita destas variáveis derivadas visa aumentar a capacidade preditiva dos modelos ao representar diretamente as relações causais entre os sensores e as falhas.
 
-De que forma a variante de qualidade da máquina (L, M, H) influencia a taxa de adição de desgaste à ferramenta (Tool wear) e altera os limites críticos de falha por sobrecarga (OSF)?
+**Objetivo 3:** Desenvolver um modelo de classificação multiclasse capaz de distinguir e diagnosticar a causa raiz da falha entre os modos específicos (*TWF*, *HDF*, *PWF*, *OSF* e *RNF*), atingindo uma percentagem de Exatidão (*Accuracy*) superior a 80% — a apresentar no relatório final do Milestone 4.
 
-Qual a correlação entre a velocidade de rotação e o binário (Torque) nos cenários em que a potência resultante ultrapassa os limites de operação segura (< 3500 W ou > 9000 W), causando uma falha de potência (PWF)?
+> Além de prever *se* ocorre uma falha (Objetivo 1), este objetivo visa identificar *qual* o tipo de falha, fornecendo informação acionável para a manutenção. Uma Exatidão superior a 80% foi definida como critério de sucesso realista, tendo em conta o nível de sobreposição entre algumas classes de falha e a reduzida dimensão de algumas delas.
 
-Como interage a diferença entre a temperatura do processo e a temperatura ambiente com a velocidade de rotação na previsão de falhas por dissipação de calor (HDF)?
-
-Existem padrões de funcionamento operacional (combinações de desgaste, temperatura e binário) que operem muito perto dos limiares críticos de avaria sem chegarem a registar falha, constituindo potenciais falsos alarmes teóricos na operação da máquina?
-
-## 3. Metodologia de Gestão (PBL)
-* **Divisão de Tarefas:**
-* **Membro Afonso Fonseca:** README.MD, Kaggle Notebook, M1_Iniciacao.md.
-* **Membro Artur Yakovenko:** .gitignore, M1_Iniciacao.md.
-* **Membro Bernardo Vieira:** requirements.txt, docs, M1_Iniciacao.md.
-* **Ferramentas de Colaboração:** GitHub, Kaggle, Reuniões Semanais via Discord
-  
-## 4. Análise de Viabilidade dos Dados
-
-Disponibilidade:
-
-A fase inicial do projeto começou com a identificação e obtenção do conjunto de dados a utilizar. O dataset selecionado foi descarregado a partir da plataforma Kaggle, através do seguinte endereço: https://www.kaggle.com/datasets/afonsornfonseca/ai4i-2020-predictive-maintenance
-Após o download, o ficheiro do dataset foi armazenado no espaço de trabalho do grupo e, de seguida, carregado novamente para o Kaggle com o objetivo de criar um Notebook associado ao dataset. Esta abordagem permitiu iniciar rapidamente o desenvolvimento num ambiente já configurado para análise de dados e execução de código, facilitando a colaboração e a reprodutibilidade do trabalho.
-Neste momento, os dados não se encontram numa base de dados relacional (por exemplo, SQL Server, MySQL ou PostgreSQL). O dataset é utilizado em formato CSV, o que é adequado à sua dimensão (10.000 registos e 14 variáveis) e ao âmbito do projeto, permitindo leitura e manipulação direta com ferramentas como Pandas/NumPy dentro do notebook.
-
-## Dicionário das variáveis
-
-| Variável | Tipo Estatístico | Domínio | Classes / Escala Semântica | Definição Operacional | Papel Analítico |
-|----------|----------------|--------|----------------------------|----------------------|-----------------|
-| UID | Numérica discreta | [1, 10000] | — | Identificador único de cada registo | Identificador (não preditivo) |
-| Product ID | Categórica nominal | — | L / M / H + número de série | Identificação do produto com variante de qualidade | Identificador (não preditivo) |
-| Type | Categórica nominal | {L, M, H} | L = Low, M = Medium, H = High | Tipo de produto (nível de qualidade) | Operacional |
-| Air temperature [K] | Numérica contínua | ~[295, 305] | — | Temperatura ambiente da máquina | Sensor térmico |
-| Process temperature [K] | Numérica contínua | ~[305, 315] | — | Temperatura do processo industrial | Sensor térmico |
-| Rotational speed [rpm] | Numérica discreta | ~[1200, 3000] | — | Velocidade de rotação da máquina | Sensor mecânico |
-| Torque [Nm] | Numérica contínua | ~[3, 80] | — | Binário aplicado durante o funcionamento | Sensor mecânico |
-| Tool wear [min] | Numérica discreta | [0, 250] | — | Tempo de desgaste acumulado da ferramenta | Estado do equipamento |
-| Machine failure | Categórica binária | {0,1} | 0 = normal, 1 = falha | Indica se ocorreu falha na máquina | Variável alvo |
-| TWF | Categórica binária | {0,1} | Tool Wear Failure | Falha devido a desgaste excessivo da ferramenta | Tipo de falha |
-| HDF | Categórica binária | {0,1} | Heat Dissipation Failure | Falha por dissipação de calor insuficiente | Tipo de falha |
-| PWF | Categórica binária | {0,1} | Power Failure | Falha devido a potência inadequada | Tipo de falha |
-| OSF | Categórica binária | {0,1} | Overstrain Failure | Falha por esforço excessivo | Tipo de falha |
-| RNF | Categórica binária | {0,1} | Random Failure | Falha aleatória sem padrão definido | Tipo de falha |
-
-Qualidade Inicial:
-
-Numa inspeção inicial ao ficheiro CSV, verificou-se que o dataset apresenta uma estrutura tabular estável e consistente: 10.000 linhas e 14 colunas, incluindo variáveis numéricas (temperaturas, velocidade rotacional, torque e desgaste da ferramenta), variáveis categóricas (tipo de produto) e variáveis binárias de falha.
-Do ponto de vista de integridade, os dados revelam-se, à partida, de boa qualidade para análise:
-Não foram detetados valores em falta (missing values) nas colunas do dataset.
-Não foram identificadas linhas duplicadas.
-As tipologias das variáveis encontram-se coerentes com o esperado (numéricas para medições e binárias para indicadores de falha).
-No entanto, identificam-se desde já aspetos importantes que terão impacto direto na fase de exploração e modelação (M2/M3):
-Desbalanceamento da variável alvo (“Machine failure”)
-A ocorrência de falha é relativamente rara: existem 339 casos de falha em 10.000 registos, correspondendo a cerca de 3,39% do total. Este desbalanceamento é comum em cenários reais de manutenção preditiva, mas exige cuidados técnicos (métricas adequadas, estratégias de validação e, eventualmente, técnicas de reamostragem/ponderação).
-Relação entre “Machine failure” e os tipos de falha específicos
-O dataset inclui variáveis binárias para tipos específicos de falha (TWF, HDF, PWF, OSF, RNF). Numa verificação preliminar, observou-se que a correspondência entre a variável “Machine failure” e a presença/ausência destes indicadores não é perfeita em todos os registos (existem alguns casos em que aparece um tipo específico marcado sem “Machine failure”, e casos inversos).
-Este ponto será analisado detalhadamente na M2 para compreender se se trata de uma regra definida pelo dataset (por exemplo, tratamento especial da falha RNF) ou de inconsistências que exijam decisões de pré-processamento.
-Variáveis de identificação
-As colunas UDI e Product ID funcionam como identificadores e, por regra, não acrescentam valor preditivo direto; ainda assim, serão avaliadas na M2 para confirmar se devem ser removidas do treino do modelo (evitando ruído ou enviesamento).
-Em síntese, o dataset apresenta boa qualidade estrutural, mas levanta desafios relevantes e interessantes (sobretudo desbalanceamento e coerência entre variáveis de falha), que serão tratados formalmente nas fases seguintes.
-
-Ética:
-
-Do ponto de vista ético e de conformidade com privacidade, o dataset não contém dados pessoais. As variáveis existentes referem-se exclusivamente a medições operacionais de máquinas e indicadores técnicos de falhas, não incluindo nomes, moradas, contactos, localizações pessoais ou qualquer identificador humano.
-Adicionalmente, trata-se de um dataset de natureza pública e amplamente utilizado para fins académicos e de investigação, o que reduz riscos associados a utilização indevida de informação sensível. Assim, não existem implicações relevantes ao nível do RGPD, uma vez que:
-não há dados pessoais ou sensíveis;
-os identificadores presentes (por exemplo, Product ID) referem-se a produtos/máquinas e não a indivíduos;
-a finalidade do uso é académica e enquadrada no contexto de análise e modelação.
-Desta forma, conclui-se que o dataset é eticamente apropriado para o desenvolvimento do projeto e não requer procedimentos adicionais de anonimização.
-
-## 5. Referências
-Dataset: https://www.kaggle.com/datasets/afonsornfonseca/ai4i-2020-predictive-maintenance
-Chapman et al. (2000). CRISP-DM 1.0: Step-by-step data mining guide
-James et al. (2021). An Introduction to Statistical Learning
-
-
-## 6. Cronograma Interno
-| Fase | Data Limite | Entregável Esperado |
-| :--- | :--- | :--- |
-| M1: Iniciação |24/02/2026| Repositório estruturado e Plano de Projeto. |
-| M2: Exploração |25/03/2026| Notebook de EDA e Dados Processados. |
-| M3: Modelação | 23/04/2026 | Comparação de algoritmos e métricas. |
-| M4: Finalização| [Data] | Pitch e Relatório Final. |
 ---
-*Data de última atualização: [24/03/2026]*
+
+## 3. Perguntas de Investigação
+
+As perguntas de investigação foram formuladas em alinhamento com os Objetivos SMART, visando ser respondidas com base nos modelos desenvolvidos e na análise dos dados, e não apenas pela exploração estatística descritiva.
+
+1. **De que forma a variante de qualidade da máquina (*L*, *M*, *H*) influencia a taxa de acumulação de desgaste da ferramenta (*Tool wear*) e altera os limiares críticos de falha por esforço excessivo (*OSF*)?**
+   Espera-se que os modelos e a análise exploratória revelem diferenças significativas na distribuição do desgaste e nos padrões de *OSF* entre os três tipos de produto.
+
+2. **Qual a combinação de velocidade de rotação e binário (*Torque*) que mais frequentemente resulta numa falha de potência (*PWF*), e essa relação é capturada pela variável de potência calculada (Objetivo 2)?**
+   Esta pergunta valida diretamente a utilidade da *feature* derivada no Objetivo 2 e será respondida pela análise de importância de variáveis no modelo.
+
+3. **De que forma a diferença entre a temperatura do processo e a temperatura ambiente interage com a velocidade de rotação na previsão de falhas por dissipação de calor (*HDF*)?**
+   Esta pergunta explora a relação causal entre variáveis térmicas e mecânicas, e será respondida tanto pela análise exploratória como pela interpretação do modelo treinado.
+
+4. **Existem padrões operacionais (combinações de desgaste, temperatura e binário) que operam próximo dos limiares críticos de falha sem a registar, constituindo potenciais falsos alarmes na operação da máquina?**
+   Esta questão orienta a análise de fronteiras de decisão dos modelos e pode ter impacto direto na calibração dos alertas de manutenção preditiva.
+
+---
+
+## 4. Metodologia
+
+O desenvolvimento do projeto segue a metodologia **CRISP-DM** (*Cross-Industry Standard Process for Data Mining*), uma abordagem estruturada e iterativa amplamente utilizada em projetos de Ciência de Dados, organizada nas seguintes fases:
+
+| Fase CRISP-DM | Descrição | Milestone |
+|:---|:---|:---|
+| *Business Understanding* | Definição do problema, objetivos e critérios de sucesso | M1 |
+| *Data Understanding* | Análise inicial da estrutura, qualidade e variáveis do *dataset* | M1/M2 |
+| *Data Preparation* | Limpeza, transformação e criação de novas variáveis (*feature engineering*) | M2 |
+| *Modeling* | Aplicação e comparação de algoritmos de *Machine Learning* | M3 |
+| *Evaluation* | Análise do desempenho dos modelos com métricas adequadas | M3/M4 |
+
+---
+
+## 5. Metodologia de Gestão (PBL)
+
+**Divisão de Tarefas:**
+
+- **Afonso Fonseca:** `README.md`, *Kaggle Notebook*, `M1_iniciacao.md`
+- **Artur Yakovenko:** `.gitignore`, `M1_iniciacao.md`
+- **Bernardo Vieira:** `requirements.txt`, pasta `docs/`, `M1_iniciacao.md`
+
+**Ferramentas de Colaboração:** *GitHub* (controlo de versões e revisão de código), *Kaggle* (desenvolvimento e execução dos *notebooks*), reuniões semanais via *Discord*.
+
+---
+
+## 6. Análise de Viabilidade dos Dados
+
+### Disponibilidade
+
+O *dataset* utilizado é o **AI4I 2020 Predictive Maintenance Dataset**, descarregado a partir da plataforma *Kaggle*:
+> https://www.kaggle.com/datasets/afonsornfonseca/ai4i-2020-predictive-maintenance
+
+Os dados encontram-se em formato CSV, o que é adequado à sua dimensão (10.000 registos e 14 variáveis) e ao âmbito do projeto, permitindo leitura e manipulação direta com *Pandas*/*NumPy* dentro do *notebook*. O *dataset* não está armazenado em base de dados relacional, não sendo necessário para o âmbito deste projeto.
+
+### Qualidade Inicial dos Dados
+
+Uma inspeção inicial ao ficheiro CSV revelou os seguintes aspetos:
+
+**Pontos positivos:**
+- Ausência total de valores em falta (*missing values*) em todas as colunas.
+- Ausência de linhas duplicadas.
+- Tipos de dados coerentes com o esperado: variáveis numéricas para medições de sensores, variáveis binárias para indicadores de falha.
+
+**Desafios identificados:**
+
+**Desequilíbrio da variável objetivo** (*class imbalance*): A variável `Machine failure` é altamente desequilibrada — existem apenas 339 casos de falha num total de 10.000 registos (≈3,4% da classe positiva). Num conjunto de dados desequilibrado, a maioria dos registos pertence a uma classe (sem falha), o que pode levar um modelo a simplesmente prever sempre "sem falha" e ainda assim obter uma *Accuracy* elevada. Por esse motivo, métricas como o *F1-Score* e a Matriz de Confusão são mais adequadas, e poderão ser exploradas técnicas de compensação como a ponderação de classes ou reamostragem (*SMOTE*), a avaliar na fase M2/M3.
+
+**Inconsistências entre `Machine failure` e os tipos de falha específicos:** Numa verificação preliminar, observou-se que a correspondência entre a variável `Machine failure` e a presença dos indicadores *TWF*, *HDF*, *PWF*, *OSF* e *RNF* não é perfeita em todos os registos. Existem casos em que um tipo de falha específico está marcado sem que `Machine failure` esteja ativo, e vice-versa. Esta situação será analisada em detalhe na fase M2 para determinar se se trata de uma regra definida pelo *dataset* (por exemplo, no tratamento especial da falha *RNF*) ou de inconsistências que exijam decisões de pré-processamento.
+
+**Variáveis de identificação:** As colunas `UDI` e `Product ID` funcionam como identificadores únicos e, por norma, não acrescentam valor preditivo. Serão avaliadas na fase M2 para confirmar se devem ser removidas do treino do modelo.
+
+### Dicionário de Variáveis
+
+| Variável | Tipo | Domínio | Definição Operacional | Papel Analítico |
+|:---|:---|:---|:---|:---|
+| `UID` | Numérica discreta | [1, 10000] | Identificador único de cada registo | Identificador (não preditivo) |
+| `Product ID` | Categórica nominal | — | Identificação do produto com variante de qualidade (L/M/H + nº de série) | Identificador (não preditivo) |
+| `Type` | Categórica nominal | {L, M, H} | Tipo de produto: *Low*, *Medium*, *High* | Variável operacional |
+| `Air temperature [K]` | Numérica contínua | ~[295, 305] | Temperatura ambiente da máquina (Kelvin) | Sensor térmico |
+| `Process temperature [K]` | Numérica contínua | ~[305, 315] | Temperatura do processo industrial (Kelvin) | Sensor térmico |
+| `Rotational speed [rpm]` | Numérica discreta | ~[1200, 3000] | Velocidade de rotação da máquina | Sensor mecânico |
+| `Torque [Nm]` | Numérica contínua | ~[3, 80] | Binário aplicado durante o funcionamento | Sensor mecânico |
+| `Tool wear [min]` | Numérica discreta | [0, 250] | Tempo de desgaste acumulado da ferramenta | Estado do equipamento |
+| `Machine failure` | Binária | {0, 1} | Indica se ocorreu falha na máquina (0 = normal, 1 = falha) | **Variável objetivo** |
+| `TWF` | Binária | {0, 1} | *Tool Wear Failure* — Falha por desgaste excessivo da ferramenta | Tipo de falha |
+| `HDF` | Binária | {0, 1} | *Heat Dissipation Failure* — Falha por dissipação de calor insuficiente | Tipo de falha |
+| `PWF` | Binária | {0, 1} | *Power Failure* — Falha por potência inadequada | Tipo de falha |
+| `OSF` | Binária | {0, 1} | *Overstrain Failure* — Falha por esforço excessivo | Tipo de falha |
+| `RNF` | Binária | {0, 1} | *Random Failure* — Falha aleatória sem padrão definido | Tipo de falha |
+
+### Ética e Conformidade
+
+O *dataset* não contém dados pessoais. Todas as variáveis referem-se exclusivamente a medições operacionais de máquinas e indicadores técnicos de falha, sem qualquer identificador humano. Trata-se de um *dataset* de natureza pública, amplamente utilizado para fins académicos e de investigação, disponível abertamente no *Kaggle*. Desta forma, não se colocam questões ao nível do RGPD, uma vez que não existem dados pessoais ou sensíveis e a finalidade do uso é exclusivamente académica.
+
+---
+
+## 7. Referências
+
+- **Dataset:** Afonso Fonseca (2024). *AI4I 2020 Predictive Maintenance Dataset*. Kaggle. https://www.kaggle.com/datasets/afonsornfonseca/ai4i-2020-predictive-maintenance
+- Chapman, P. et al. (2000). *CRISP-DM 1.0: Step-by-step data mining guide*. SPSS Inc.
+- James, G. et al. (2021). *An Introduction to Statistical Learning* (2nd ed.). Springer.
+- Matzka, S. (2020). *Explainable Artificial Intelligence for Predictive Maintenance Applications*. IEEE.
+
+---
+
+## 8. Cronograma Interno
+
+| Fase | Data Limite | Entregável Esperado |
+|:---|:---|:---|
+| M1: Iniciação | 24/02/2026 | Repositório estruturado e Plano de Projeto |
+| M2: Exploração | 25/03/2026 | *Notebook* de EDA, *feature engineering* e dados processados |
+| M3: Modelação | 23/04/2026 | Comparação de algoritmos e métricas de avaliação |
+| M4: Finalização | [Data] | *Pitch* e Relatório Final |
+
+---
+
+*Data de última atualização: 23/04/2026*
