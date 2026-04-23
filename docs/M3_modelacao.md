@@ -16,20 +16,24 @@
 
 | Métrica | Treino | Teste |
 | :--- | :--- | :--- |
-| Accuracy | ~96,8% | 96,75% |
-| Precision | — | 56,5% |
-| Recall | — | 19,1% |
+| Accuracy | 97,2% | 96,75% |
+| Precision | 71,9% | 56,5% |
+| Recall | 27,3% | 19,1% |
 | F1-Score | 39,6% | 28,6% |
 
 > **Conclusão:** Apesar da Accuracy elevada, o modelo falha redondamente na deteção de avarias. Com apenas 19,1% de Recall, está a ignorar mais de 80% das falhas reais — comportamento inaceitável para o objetivo de negócio. Este resultado justifica a adoção de modelos mais sofisticados e de estratégias de compensação do desequilíbrio.
 
 ### 2.2. Modelos Candidatos
-*Listagem dos algoritmos testados e a justificação da escolha.*
-| Algoritmo | Parâmetros Base | Métrica (Treino) | Métrica (Teste) | Notas |
+*Algoritmos testados e justificação da escolha.*
+
+| Algoritmo | Parâmetros Base | F1-Score (Treino) | F1-Score (Teste) | Notas |
 | :--- | :--- | :--- | :--- | :--- |
-| Random Forest | n_estimators=100 | 0.95 | 0.82 | Sinais de overfitting |
-| XGBoost | default | 0.88 | 0.85 | Melhor generalização |
-| SVM | kernel='rbf' | 0.80 | 0.79 | Lento no treino |
+| Árvore de Decisão | `max_depth=3`, `random_state=42` | 39,7% | 31,0% | Precision alta (81,3%) mas Recall idêntico ao baseline (19,1%). Muito conservador. |
+| Random Forest | `n_estimators=100`, `max_depth=5`, `class_weight='balanced'` | 58,1% | 54,8% | Alto Recall (88,2%) mas Precision muito baixa (39,7%) — demasiados alarmes falsos. |
+| **XGBoost** | `n_estimators=100`, `max_depth=4`, `learning_rate=0.1`, `scale_pos_weight` (auto) | **69,1%** | **57,8%** | **Melhor equilíbrio Precision/Recall. Modelo selecionado para otimização.** |
+
+> **Nota sobre a estratégia anti-desequilíbrio:** O Random Forest utilizou `class_weight='balanced'` e o XGBoost utilizou `scale_pos_weight` (rácio classes negativas/positivas calculado automaticamente a partir dos dados de treino). Ambas as técnicas penalizam o modelo por ignorar a classe minoritária, sendo determinantes para o salto de performance face aos baselines.
+
 ## 3. Otimização (Tuning)
 *Descrevam como melhoraram o melhor modelo.*
 * **Técnica Utilizada:** (p/ex.: "Utilizámos GridSearchCV para ajustar os hiperparâmetros
