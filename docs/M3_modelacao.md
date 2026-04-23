@@ -53,9 +53,16 @@
 | **XGBoost Otimizado** | **94,6%** | **75,2%** | **+17,4 p.p.** |
 ## 4. Avaliação do Modelo Final
 ### 4.1. Matriz de Confusão / Erros
-*Analisem onde o modelo mais falha.*
-> **Análise:** (p/ex.: "O modelo ainda confunde a Classe A com a Classe B em 10% dos casos devido
-à semelhança nos atributos X e Y.")
+*Onde o modelo mais falha.*
+
+| | Previsto: Não Falha | Previsto: Falha |
+| :--- | :--- | :--- |
+| **Real: Não Falha** |  1907 |  25 |
+| **Real: Falha** |  12 |  56 |
+
+> **Análise:** Em 2000 instâncias de teste, o modelo apenas se enganou em **37 casos** (25 + 12). Destes erros, os mais "baratos" são os **25 falsos positivos** (alarmes falsos — a fábrica faz uma inspeção desnecessária mas a máquina está bem) e os mais "caros" são os **12 falsos negativos** (avarias reais que escaparam sem deteção). De todas as avarias reais presentes no conjunto de teste (68 no total), o modelo detetou **56 corretamente e deixou escapar apenas 12** — um Recall de 82,4%. Quando emite um alarme, tem razão em **69,1% das vezes** (Precision). O principal padrão de erro residual são máquinas que apresentam leituras de Torque e Tool Wear próximas dos limiares normais — situações em que a degradação é ainda incipiente e os sinais não são suficientemente distintivos para o modelo classificar com confiança.
+
+---
 ### 4.2. Importância dos Atributos (Feature Importance)
 *Quais as variáveis que o modelo considerou mais importantes para decidir?*
 1. [Variável X]
