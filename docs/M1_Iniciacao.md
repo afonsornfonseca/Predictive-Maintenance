@@ -25,15 +25,15 @@ A abordagem é **supervisionada**, uma vez que a variável objetivo está defini
 
 Os objetivos do projeto seguem a lógica *SMART* — Específico, Mensurável, Atingível, Relevante e Temporal — e visam tornar transparente para o modelo de *Machine Learning* as causas subjacentes à variável `Machine failure`, modelando matematicamente os modos de falha independentes presentes no *dataset*.
 
-**Objetivo 1:** Desenvolver um modelo de classificação binária que preveja a ocorrência de falha na variável `Machine failure`, atingindo um *F1-Score* mínimo de 0,85 na classe positiva (falha), com o objetivo de minimizar paragens operacionais não planeadas — a entregar no Milestone 3 (23/04/2026).
+**Objetivo 1:** Desenvolver um modelo de classificação binária que preveja a ocorrência de falha na variável `Machine failure`, atingindo um *F1-Score* mínimo de 0,85 na classe positiva (falha), com o objetivo de minimizar paragens operacionais não planeadas.
 
 Este objetivo enquadra-se no problema de negócio central: antecipar a falha antes que esta ocorra. O *F1-Score* foi escolhido como métrica principal por penalizar tanto os falsos positivos como os falsos negativos, sendo adequado ao desequilíbrio de classes presente no *dataset* (~3,4% de falhas).
 
-**Objetivo 2:** Construir uma *pipeline* de Engenharia de Variáveis que extraia, pelo menos, duas novas métricas físicas baseadas nas regras de operação do equipamento — nomeadamente a diferença térmica (relevante para a previsão de *HDF*) e a potência calculada em rad/s (relevante para *PWF*) —, a entregar no Milestone 2 (25/03/2026).
+**Objetivo 2:** Construir uma *pipeline* de Engenharia de Variáveis que extraia, pelo menos, duas novas métricas físicas baseadas nas regras de operação do equipamento — nomeadamente a diferença térmica (relevante para a previsão de *HDF*) e a potência calculada em rad/s (relevante para *PWF*).
 
 Este objetivo fundamenta-se nas regras físicas que determinam cada modo de falha no *dataset*. A criação explícita destas variáveis derivadas visa aumentar a capacidade preditiva dos modelos ao representar diretamente as relações causais entre os sensores e as falhas.
 
-**Objetivo 3:** Desenvolver um modelo de classificação multiclasse capaz de distinguir e diagnosticar a causa raiz da falha entre os modos específicos (*TWF*, *HDF*, *PWF*, *OSF* e *RNF*), atingindo uma percentagem de Exatidão (*Accuracy*) superior a 80% — a apresentar no relatório final do Milestone 4.
+**Objetivo 3:** Desenvolver um modelo de classificação multiclasse capaz de distinguir e diagnosticar a causa raiz da falha entre os modos específicos (*TWF*, *HDF*, *PWF*, *OSF* e *RNF*), atingindo uma percentagem de Exatidão (*Accuracy*) superior a 80%.
 
 Além de prever *se* ocorre uma falha (Objetivo 1), este objetivo visa identificar *qual* o tipo de falha, fornecendo informação acionável para a manutenção. Uma Exatidão superior a 80% foi definida como critério de sucesso realista, tendo em conta o nível de sobreposição entre algumas classes de falha e a reduzida dimensão de algumas delas.
 
