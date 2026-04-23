@@ -35,10 +35,22 @@
 > **Nota sobre a estratégia anti-desequilíbrio:** O Random Forest utilizou `class_weight='balanced'` e o XGBoost utilizou `scale_pos_weight` (rácio classes negativas/positivas calculado automaticamente a partir dos dados de treino). Ambas as técnicas penalizam o modelo por ignorar a classe minoritária, sendo determinantes para o salto de performance face aos baselines.
 
 ## 3. Otimização (Tuning)
-*Descrevam como melhoraram o melhor modelo.*
-* **Técnica Utilizada:** (p/ex.: "Utilizámos GridSearchCV para ajustar os hiperparâmetros
-`max_depth` e `learning_rate`.")
-* **Melhoria obtida:** (p/ex.: "O F1-Score subiu de 0.85 para 0.88 após o ajuste.")
+*Como melhorámos o melhor modelo.*
+
+* **Técnica Utilizada:** Aplicámos `GridSearchCV` com validação cruzada estratificada de 5 dobras (`StratifiedKFold`, `cv=5`) sobre o XGBoost, com foco exclusivo no **F1-Score** como critério de seleção. A grelha explorada concentrou-se em hiperparâmetros que combatem o overfitting observado no modelo base (F1 Treino: 69,1% vs F1 Teste: 57,8%):
+
+| Hiperparâmetro | Valores Testados | Objetivo |
+| :--- | :--- | :--- |
+| `max_depth` | [2, 3, 4] | Limitar a profundidade para evitar memorização de padrões específicos |
+| `learning_rate` | [0.01, 0.05, 0.1] | Aprendizagem mais gradual e robusta |
+| `n_estimators` | [100, 200, 300] | Número de árvores a combinar |
+
+* **Melhoria obtida:** O F1-Score no conjunto de teste subiu de **57,8% para 75,2%** após o ajuste — um ganho de **+17,4 p.p.** A validação cruzada K-Fold (K=5) confirmou a robustez do modelo com F1-Score médio estável e baixo desvio padrão nas 5 dobras, provando que os resultados generalizam de forma consistente.
+
+| Fase | F1-Score (Treino) | F1-Score (Teste) | Δ Teste |
+| :--- | :--- | :--- | :--- |
+| XGBoost Base | 69,1% | 57,8% | — |
+| **XGBoost Otimizado** | **94,6%** | **75,2%** | **+17,4 p.p.** |
 ## 4. Avaliação do Modelo Final
 ### 4.1. Matriz de Confusão / Erros
 *Analisem onde o modelo mais falha.*
