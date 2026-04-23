@@ -1,19 +1,28 @@
 # Milestone 3: Modelação e Avaliação
 ## 1. Estratégia de Modelação
 
-* **Divisão do dataset:**: 
-Para preparar os dados para os algoritmos de Machine Learning, utilizámos uma divisão de 80% para treino (8000 instâncias) e 20% para teste (2000 instâncias). Para garantir a total reprodutibilidade dos resultados em execuções futuras, fixámos a semente aleatória (random_state=42).
-O passo técnico mais crítico foi o uso do parâmetro stratify=y. Dado o desequilíbrio acentuado da variável alvo (~3,4% de avarias reais), a estratificação garantiu que esta proporção minoritária se manteve rigorosamente idêntica em ambos os conjuntos. Sem este passo, corríamos o risco de gerar um conjunto de teste sem falhas suficientes para uma avaliação fiável.
-Foi também testada uma divisão alternativa de 75/25 para validação da estabilidade dos resultados, confirmando que o desempenho dos modelos se manteve consistente independentemente da proporção escolhida.
-* **Métrica de Sucesso:**
-A métrica principal eleita para avaliar o sucesso e a performance dos modelos foi o **F1-Score**, complementado pela métrica de **Recall**  e pela área sob a curva **ROC-AUC**. 
-A escolha destas métricas justifica-se pelo desequilíbrio das classes e foi imediatamente comprovada pela execução do nosso Modelo Baseline (Regressão Logística). O baseline obteve uma Exatidão (*Accuracy*) de 96,75%, o que, numa análise superficial, pareceria um excelente resultado. No entanto, o seu F1-Score foi de apenas 28,5% e o Recall de uns meros 19,1%. Isto significa que o modelo, apesar de acertar quase sempre, está apenas a prever a classe maioritária ("não falha") e a falhar redondamente na deteção das verdadeiras avarias (falsos negativos). 
-Num contexto de manutenção preditiva industrial, o custo de não prever uma falha (falso negativo, que resulta em paragem de produção e quebra da máquina) é muito superior ao custo de uma inspeção desnecessária (falso positivo). Por isso, o F1-Score (que equilibra *Precision* e *Recall*) é a única métrica que reflete a verdadeira viabilidade do nosso modelo para a resolução do problema de negócio.
+*Descrição de como os dados foram preparados para os algoritmos.*
+
+* **Divisão do dataset:** Utilizámos uma divisão de **80% para treino (8000 instâncias) e 20% para teste (2000 instâncias)**, com semente aleatória fixa (`random_state=42`) para garantir total reprodutibilidade. O passo mais crítico foi o parâmetro `stratify=y`: dado o acentuado desequilíbrio da variável alvo (~3,4% de avarias reais), a estratificação garantiu que esta proporção minoritária se manteve rigorosamente idêntica em ambos os conjuntos. Sem este passo, corríamos o risco de gerar um conjunto de teste sem falhas suficientes para uma avaliação fiável. Foi ainda testada uma divisão alternativa 75/25 que confirmou a estabilidade dos resultados independentemente da proporção escolhida.
+
+* **Métrica de Sucesso:** A métrica principal eleita foi o **F1-Score**, complementado pelo **Recall** e pela **ROC-AUC**. A escolha foi imediatamente validada pelo nosso modelo baseline: a Regressão Logística obteve uma Accuracy de 96,75% — aparentemente excelente — mas com F1-Score de apenas **28,5%** e Recall de **19,1%**. O modelo limitava-se a prever sempre "não falha", ignorando completamente as avarias reais. Num contexto de manutenção preditiva industrial, o custo de um **falso negativo** (avaria não detetada → paragem de produção, dano no equipamento) é incomparavelmente superior ao custo de um **falso positivo** (inspeção desnecessária). O F1-Score é, portanto, a única métrica que reflete a viabilidade real do modelo para este problema de negócio.
+
 ## 2. Experiências Realizadas
 ### 2.1. Modelo Baseline
 *O ponto de partida simples.*
-* **Algoritmo:** (p/ex.: Regressão Logística)
-* **Resultado:** (p/ex.: Accuracy: 0.72)
+
+* **Algoritmo:** Regressão Logística (`max_iter=1000`, `random_state=42`), sem qualquer estratégia de compensação do desequilíbrio de classes.
+* **Resultado:**
+
+| Métrica | Treino | Teste |
+| :--- | :--- | :--- |
+| Accuracy | ~96,8% | 96,75% |
+| Precision | — | 56,5% |
+| Recall | — | 19,1% |
+| F1-Score | 39,6% | 28,6% |
+
+> **Conclusão:** Apesar da Accuracy elevada, o modelo falha redondamente na deteção de avarias. Com apenas 19,1% de Recall, está a ignorar mais de 80% das falhas reais — comportamento inaceitável para o objetivo de negócio. Este resultado justifica a adoção de modelos mais sofisticados e de estratégias de compensação do desequilíbrio.
+
 ### 2.2. Modelos Candidatos
 *Listagem dos algoritmos testados e a justificação da escolha.*
 | Algoritmo | Parâmetros Base | Métrica (Treino) | Métrica (Teste) | Notas |
