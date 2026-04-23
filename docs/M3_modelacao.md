@@ -1,8 +1,10 @@
 # Milestone 3: Modelação e Avaliação
 ## 1. Estratégia de Modelação
 
-* **Divisão do dataset:**: Para preparar os dados para os algoritmos de Machine Learning, utilizámos uma divisão de 80% dos dados para treino (8000 instâncias) e 20% para teste (2000 instâncias). Para garantir a total reprodutibilidade dos resultados em execuções futuras, fixámos a semente aleatória (random_state=42).
-O passo técnico mais crítico nesta divisão foi a utilização do parâmetro de estratificação (stratify=y). Dada a natureza altamente desbalanceada da nossa variável alvo (apenas ~3,4% de avarias reais), a estratificação garantiu que esta proporção minoritária se mantivesse rigorosamente idêntica tanto no conjunto de treino como no conjunto de teste. Sem este passo, corríamos o risco estatístico de gerar um conjunto de teste sem falhas suficientes para uma avaliação fiável do modelo.
+* **Divisão do dataset:**: 
+Para preparar os dados para os algoritmos de Machine Learning, utilizámos uma divisão de 80% para treino (8000 instâncias) e 20% para teste (2000 instâncias). Para garantir a total reprodutibilidade dos resultados em execuções futuras, fixámos a semente aleatória (random_state=42).
+O passo técnico mais crítico foi o uso do parâmetro stratify=y. Dado o desequilíbrio acentuado da variável alvo (~3,4% de avarias reais), a estratificação garantiu que esta proporção minoritária se manteve rigorosamente idêntica em ambos os conjuntos. Sem este passo, corríamos o risco de gerar um conjunto de teste sem falhas suficientes para uma avaliação fiável.
+Foi também testada uma divisão alternativa de 75/25 para validação da estabilidade dos resultados, confirmando que o desempenho dos modelos se manteve consistente independentemente da proporção escolhida.
 * **Métrica de Sucesso:**
 A métrica principal eleita para avaliar o sucesso e a performance dos modelos foi o **F1-Score**, complementado pela métrica de **Recall**  e pela área sob a curva **ROC-AUC**. 
 A escolha destas métricas justifica-se pelo desequilíbrio das classes e foi imediatamente comprovada pela execução do nosso Modelo Baseline (Regressão Logística). O baseline obteve uma Exatidão (*Accuracy*) de 96,75%, o que, numa análise superficial, pareceria um excelente resultado. No entanto, o seu F1-Score foi de apenas 28,5% e o Recall de uns meros 19,1%. Isto significa que o modelo, apesar de acertar quase sempre, está apenas a prever a classe maioritária ("não falha") e a falhar redondamente na deteção das verdadeiras avarias (falsos negativos). 
