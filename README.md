@@ -65,8 +65,8 @@ Assim, este projeto pretende explorar dados de funcionamento de máquinas indust
 > Os resultados obtidos permitiram compreender melhor os fatores que influenciam a ocorrência de falhas e orientar as decisões de modelação.
 ## 3. Modelação (Milestone 3)
 ### Abordagem Técnica
-* **Modelos:** [Ex: Random Forest e XGBoost]
-* **Métrica Principal:** [Ex: F1-Score ou RMSE]
+* **Modelos:** Foram avaliados diferentes modelos de classificação supervisionada. Inicialmente, foram implementados modelos baseline (Regressão Logística e Árvore de Decisão) para estabelecer um ponto de referência. Posteriormente, foram testados modelos mais complexos, nomeadamente Random Forest e XGBoost, tendo este último sido selecionado como modelo final após otimização de hiperparâmetros, devido ao seu desempenho superior.
+* **Métrica Principal:** A métrica principal utilizada foi o F1-Score, uma vez que permite avaliar o equilíbrio entre *precision* e *recall*. Esta escolha justifica-se pelo desbalanceamento da variável alvo e pela necessidade de minimizar falsos negativos, dado o impacto crítico de falhas não detetadas no contexto de manutenção preditiva.
 ## 4. Finalização (Milestone 4)
 ### Resposta ao Problema
 [Resumo da solução e como ela gera valor para o negócio.]
