@@ -48,6 +48,8 @@ Após a análise descritiva das variáveis, não foram encontrados valores fisic
 Tratamento de Outliers (Valores Extremos):
 A análise visual através de boxplots revelou a presença de outliers estatísticos, particularmente nas variáveis Rotational speed [rpm] (com valores extremos a atingir as 2886 rpm) e Torque [Nm].
 A nossa estratégia foi a manutenção integral de todos os outliers, não aplicando qualquer técnica de remoção ou limitação (como Winsorization). No contexto específico da manutenção preditiva industrial, estes valores extremos não representam "ruído" ou erros de leitura dos sensores, mas sim picos de stress mecânico ou anomalias operacionais reais. Como são frequentemente estes desvios abruptos que causam as falhas de sobrecarga (OSF) ou falhas de potência (PWF), a sua remoção destruiria o poder preditivo do nosso modelo perante a variável alvo.
+### 2.3. Verificação de Registos Duplicados
+De forma a garantir que o algoritmo não seria viciado por amostras redundantes, efetuou-se a verificação de linhas exatamentes iguais no dataset através do método .duplicated(). Não foram encontrados quaisquer registos duplicados, assegurando que cada uma das 10.000 instâncias fornece informação única e independente para o processo de aprendizagem.
 
 ## 3. Engenharia de Atributos (Feature Engineering)
 ### 3.1. Transformações Realizadas
