@@ -92,4 +92,4 @@ O modelo **XGBoost Otimizado** está pronto para ser apresentado como solução 
 Em suma: trocámos um modelo "medroso" que disparava alarmes por qualquer variação mínima parando a fábrica desnecessariamente e erodindo a confiança da equipa por um modelo **fiável, inteligente e calibrado para produção**, que alerta com convicção e deteta a esmagadora maioria das avarias reais antes que causem dano.
 
 ---
-*Data de última atualização: 23/04/2025*
+*Data de última atualização: 23/04/2026*
