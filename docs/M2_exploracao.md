@@ -71,6 +71,12 @@ De modo a garantir a robustez do modelo preditivo e a qualidade do processo de a
 * Remoção de Variáveis de Identificação: Numa primeira fase da preparação dos dados, procedeu-se à eliminação das colunas UDI e Product ID. Uma vez que estas variáveis funcionam exclusivamente como identificadores únicos de cada registo e números de série das ferramentas, não possuem qualquer relação de causalidade ou valor preditivo face à ocorrência de avarias. A sua manutenção no conjunto de dados introduziria apenas ruído matemático desnecessário no treino do modelo.
 
 * Remoção de Variáveis com Fuga de Dados (Data Leakage): Numa etapa subsequente, foram eliminadas as colunas correspondentes aos modos de falha determinísticos específicos (TWF, HDF, PWF, OSF e RNF). Sendo a variável alvo a classificação binária geral Machine failure, a presença destas subcategorias no conjunto de treino provocaria um fenómeno severo de data leakage (fuga de dados). O modelo aprenderia a mapear a avaria apoiando-se exclusivamente na leitura destes rótulos diretos, perdendo a necessidade e a capacidade de extrair os verdadeiros padrões de correlação subjacentes às grandezas físicas e operacionais (temperaturas, velocidade, binário e desgaste).
+### 3.4. Gestão de Multicolinearidade
+
+Conforme identificado na Análise Exploratória (Secção 1.2), existe uma fortíssima correlação linear (≈ 0.88) entre a Air temperature e a Process temperature, o que configura um cenário de multicolinearidade (redundância de informação). No entanto, optou-se por manter as duas variáveis originais. A justificação prende-se com o facto de os algoritmos planeados para a Fase 3 (baseados em árvores de decisão, como Random Forest e XGBoost) serem intrinsecamente imunes aos efeitos adversos da multicolinearidade, não sofrendo perda de estabilidade ou precisão.
+### 3.5. Divisão dos Dados e Estratificação (Train-Test Split)
+
+Como última etapa de preparação antes da modelação, procedeu-se à divisão do conjunto de dados em dados de Treino (80%) e dados de Teste (20%). Para lidar com o severo desequilíbrio das classes (3,39% de falhas), aplicou-se o parâmetro stratify à variável alvo. Este procedimento matemático forçou a que a exata proporção de avarias se mantivesse idêntica em ambos os conjuntos, garantindo que o modelo tem dados suficientes para aprender na fase de treino e exemplos reais de avarias para ser validado com rigor na fase de teste.
 
 
 ## 4. Dicionário de Dados Final (Pós-Processamento)
