@@ -21,7 +21,7 @@
 | Recall | 27,3% | 19,1% |
 | F1-Score | 39,6% | 28,6% |
 
- **Conclusão:** Apesar da Accuracy elevada, o modelo falha redondamente na deteção de avarias. Com apenas 19,1% de Recall, está a ignorar mais de 80% das falhas reais — comportamento inaceitável para o objetivo de negócio. Este resultado justifica a adoção de modelos mais sofisticados e de estratégias de compensação do desequilíbrio.
+ **Conclusão:** Apesar da Accuracy elevada, o modelo falha redondamente na deteção de avarias. Com apenas 19,1% de Recall, está a ignorar mais de 80% das falhas reais, comportamento inaceitável para o objetivo de negócio. Este resultado justifica a adoção de modelos mais sofisticados e de estratégias de compensação do desequilíbrio.
 
 ### 2.2. Modelos Candidatos
 *Algoritmos testados e justificação da escolha.*
@@ -60,7 +60,7 @@
 | **Real: Não Falha** |  1907 |  25 |
 | **Real: Falha** |  12 |  56 |
 
- **Análise:** Em 2000 instâncias de teste, o modelo apenas se enganou em **37 casos** (25 + 12). Destes erros, os mais "baratos" são os **25 falsos positivos** (alarmes falsos — a fábrica faz uma inspeção desnecessária mas a máquina está bem) e os mais "caros" são os **12 falsos negativos** (avarias reais que escaparam sem deteção). De todas as avarias reais presentes no conjunto de teste (68 no total), o modelo detetou **56 corretamente e deixou escapar apenas 12** — um Recall de 82,4%. Quando emite um alarme, tem razão em **69,1% das vezes** (Precision). O principal padrão de erro residual são máquinas que apresentam leituras de Torque e Tool Wear próximas dos limiares normais — situações em que a degradação é ainda incipiente e os sinais não são suficientemente distintivos para o modelo classificar com confiança.
+ **Análise:** Em 2000 instâncias de teste, o modelo apenas se enganou em **37 casos** (25 + 12). Destes erros, os mais "baratos" são os **25 falsos positivos** (alarmes falsos (a fábrica faz uma inspeção desnecessária mas a máquina está bem)) e os mais "caros" são os **12 falsos negativos** (avarias reais que escaparam sem deteção). De todas as avarias reais presentes no conjunto de teste (68 no total), o modelo detetou **56 corretamente e deixou escapar apenas 12** — um Recall de 82,4%. Quando emite um alarme, tem razão em **69,1% das vezes** (Precision). O principal padrão de erro residual são máquinas que apresentam leituras de Torque e Tool Wear próximas dos limiares normais — situações em que a degradação é ainda incipiente e os sinais não são suficientemente distintivos para o modelo classificar com confiança.
 
 ---
 ### 4.2. Importância dos Atributos (Feature Importance)
@@ -74,7 +74,7 @@
 6. **Air / Process temperature [K]** — as temperaturas absolutas contribuem de forma complementar à diferença térmica.
 7. **Type_Encoded** — o tipo de produto (L/M/H) tem influência menor, mas estatisticamente confirmada pelo modelo.
 
-> **Nota:** As duas variáveis de Feature Engineering criadas no Milestone 2 — `Power` e `Temp_diff` — estão entre as mais importantes do modelo final, validando retrospetivamente a qualidade do trabalho de engenharia de atributos realizado.
+> **Nota:** As duas variáveis de Feature Engineering criadas no Milestone 2 `Power` e `Temp_diff` estão entre as mais importantes do modelo final, validando retrospetivamente a qualidade do trabalho de engenharia de atributos realizado.
 
 ## 5. Conclusão da Fase de Modelação
 *Justificação de por que razão este modelo está pronto para ser apresentado como solução final.*
@@ -87,9 +87,9 @@ O modelo **XGBoost Otimizado** está pronto para ser apresentado como solução 
 
 * **O Balanço — F1-Score a 75%:** É a prova matemática de que este trade-off foi a decisão certa. O enorme ganho em Precision (+26 p.p. face ao XGBoost base) compensou largamente a pequena perda em Recall (−5 p.p.), resultando num salto de **+17 p.p.** no F1-Score global.
 
-* **A validação estatística:** O K-Fold Cross-Validation (K=5) confirmou que o modelo generaliza de forma estável — os resultados não são produto de uma divisão treino/teste favorável, mas de um modelo genuinamente robusto e reprodutível.
+* **A validação estatística:** O K-Fold Cross-Validation (K=5) confirmou que o modelo generaliza de forma estável, os resultados não são produto de uma divisão treino/teste favorável, mas de um modelo genuinamente robusto e reprodutível.
 
-Em suma: trocámos um modelo "medroso" que disparava alarmes por qualquer variação mínima — parando a fábrica desnecessariamente e erodindo a confiança da equipa — por um modelo **fiável, inteligente e calibrado para produção**, que alerta com convicção e deteta a esmagadora maioria das avarias reais antes que causem dano.
+Em suma: trocámos um modelo "medroso" que disparava alarmes por qualquer variação mínima parando a fábrica desnecessariamente e erodindo a confiança da equipa por um modelo **fiável, inteligente e calibrado para produção**, que alerta com convicção e deteta a esmagadora maioria das avarias reais antes que causem dano.
 
 ---
 *Data de última atualização: 23/04/2025*
