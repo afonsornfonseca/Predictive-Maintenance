@@ -114,4 +114,13 @@ Para atingir este estado de prontidão, garantiu-se a inexistência de valores n
 
 Em síntese, o conjunto de dados processado reúne todas as condições técnicas, matemáticas e físicas para o treino de algoritmos preditivos. O principal desafio analítico reservado para a próxima etapa consistirá na implementação de técnicas de reamostragem ou ajuste de pesos (class weights) para mitigar o severo desequilíbrio da variável alvo.
 
+## 6. Referências
+ 
+- Chandola, V., Banerjee, A., & Kumar, V. (2009). Anomaly detection: A survey. ACM Computing Surveys, 41(3).
+- Géron, A. (2022). Hands-On Machine Learning with Scikit-Learn, Keras, and TensorFlow (3rd ed.). O'Reilly Media.
+- James, G. et al. (2021). An Introduction to Statistical Learning (2nd ed.). Springer.
+- Kaufman, S. et al. (2012). Leakage in data mining: Formulation, detection, and avoidance. ACM TKDD, 6(4).
+- Matzka, S. (2020). Explainable Artificial Intelligence for Predictive Maintenance Applications. IEEE.
+
+  
 *Data de última atualização: [24/03/2026]* 
