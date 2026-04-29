@@ -1,13 +1,16 @@
 # Milestone 2: Análise Exploratória e Engenharia de Atributos
 ## 1. Análise Exploratória de Dados (EDA)
 ### 1.1. Distribuição da Variável Alvo
-A variável alvo do nosso projeto é “Machine failure”, que assume dois valores: 0 quando a máquina funciona normalmente e 1 quando ocorre uma falha. Para percebermos como esta variável se distribui no dataset, calculámos as frequências e representámos os resultados num gráfico circular no Kaggle.
-O que observámos foi um forte desequilíbrio entre classes: 96,61% dos registos correspondem a funcionamento normal, enquanto apenas 3,39% representam falhas reais. Isto significa que estamos perante um problema típico de manutenção preditiva: as falhas são eventos raros quando comparadas com períodos de operação normal.
-Este ponto é importante porque influencia diretamente a forma como iremos avaliar o modelo mais à frente. Se utilizássemos apenas a métrica de accuracy, poderíamos ser facilmente enganados. Por exemplo, um modelo que previsse sempre “não falha” teria automaticamente cerca de 96% de acerto, mas não estaria efetivamente a cumprir o objetivo do projeto, que é identificar falhas.
-Assim, esta análise inicial permite-nos antecipar duas decisões importantes para a fase de modelação:
-Primeiro, teremos de utilizar métricas mais adequadas para classes desbalanceadas, como recall da classe de falha, F1-score ou curvas Precision-Recall, que avaliam melhor a capacidade do modelo em detetar os casos raros.
-Segundo, poderá ser necessário aplicar estratégias específicas para lidar com o desbalanceamento, como o uso de pesos diferenciados para as classes ou técnicas de reamostragem. Ainda não aplicámos nenhuma dessas técnicas nesta fase, mas já sabemos que este será um aspeto crítico no desenvolvimento do modelo.
-Em resumo, a análise da variável alvo mostrou-nos que o dataset está bem estruturado, mas apresenta um desafio claro: as falhas são poucas. Isso não é um problema é uma característica realista do cenário industrial mas obriga-nos a ter cuidado na forma como vamos treinar e avaliar o modelo.
+
+A variável alvo do nosso projeto é **“Machine failure”**, que assume dois valores: 0 quando a máquina funciona normalmente e 1 quando ocorre uma falha. Para percebermos como esta variável se distribui no dataset, calculámos as frequências e representámos os resultados num gráfico circular no Kaggle, o que revelou as seguintes conclusões essenciais:
+
+* **Forte Desequilíbrio de Classes:** O dataset apresenta 96,61% dos registos correspondentes a funcionamento normal e apenas **3,39% de falhas reais**. Isto reflete um problema típico de manutenção preditiva, onde as avarias são eventos muito raros face aos longos períodos de operação normal.
+* **A Ilusão da *Accuracy*:** Este desbalanceamento influencia diretamente a forma como iremos avaliar o modelo. Utilizar apenas a *accuracy* seria enganador: um modelo inútil que previsse sempre “não falha” teria automaticamente ~96% de acerto, falhando totalmente o objetivo do projeto.
+* **Adoção de Métricas Robustas:** Para contornar este problema e avaliar a real capacidade do modelo em detetar os casos raros, decidimos utilizar métricas mais adequadas para classes desbalanceadas, nomeadamente o **Recall** (focado na classe de falha), o **F1-Score** e as curvas de *Precision-Recall*.
+* **Necessidade de Estratégias Específicas:** O desequilíbrio exigirá a adoção de técnicas para lidar com a minoria de dados, como o uso de pesos diferenciados para as classes ou técnicas de reamostragem. Embora ainda não tenhamos aplicado nenhuma destas abordagens nesta fase exploratória, já as identificámos como um passo crítico no desenvolvimento da modelação.
+
+**Em resumo:** A análise da variável alvo provou que o dataset está bem estruturado e é fiel à realidade industrial. O reduzido número de falhas não é um defeito, mas uma característica do cenário de fábrica, o que guiará as nossas decisões táticas no treino e avaliação dos algoritmos nas próximas etapas.
+
 ### 1.2. Correlações Relevantes
 Após a construção do mapa de correlação das variáveis numéricas, foi possível identificar relações fortes e moderadas entre alguns atributos do dataset.
 A primeira relação que se destaca é entre Rotational speed [rpm] e Torque [Nm], com uma correlação negativa muito forte (≈ -0.88). O gráfico de dispersão confirma visualmente esta relação: à medida que a velocidade de rotação aumenta, o torque tende a diminuir de forma consistente. Esta relação é coerente do ponto de vista físico e indica dependência direta entre estas duas variáveis operacionais.
