@@ -23,19 +23,23 @@ A abordagem é **supervisionada**, uma vez que a variável objetivo está defini
 
 ## 2. Objetivos SMART
 
-Os objetivos do projeto seguem a lógica *SMART* (Específico, Mensurável, Atingível, Relevante e Temporal) e visam tornar transparente para o modelo de *Machine Learning* as causas subjacentes à variável `Machine failure`, modelando matematicamente os modos de falha independentes presentes no *dataset*.
+Os objetivos do projeto seguem a lógica SMART (Específico, Mensurável, Atingível, Relevante e Temporal) e foram reformulados após a fase de exploração e modelação dos dados, tendo em consideração o comportamento real do dataset, o forte desequilíbrio da variável alvo e os resultados obtidos pelos modelos de Machine Learning.
 
-**Objetivo 1:** Desenvolver um modelo de classificação binária que preveja a ocorrência de falha na variável `Machine failure`, atingindo um *F1-Score* mínimo de 0,85 na classe positiva (falha), com o objetivo de minimizar paragens operacionais não planeadas.
+**Objetivo 1:** Desenvolver um modelo de classificação binária capaz de prever a ocorrência de falha na variável *Machine failure*, atingindo um F1-Score mínimo de 0,75 e um Recall superior a 80% na classe positiva (falha), com o objetivo de minimizar falhas industriais não detetadas.
 
-Este objetivo enquadra-se no problema de negócio central: antecipar a falha antes que esta ocorra. O *F1-Score* foi escolhido como métrica principal por penalizar tanto os falsos positivos como os falsos negativos, sendo adequado ao desequilíbrio de classes presente no *dataset* (~3,4% de falhas).
+Este objetivo enquadra-se no principal problema de negócio do projeto: antecipar avarias antes da ocorrência de paragens operacionais inesperadas. O Recall foi considerado essencial devido ao elevado impacto dos falsos negativos, enquanto o F1-Score garante equilíbrio entre deteção de falhas e controlo de falsos alarmes.
 
-**Objetivo 2:** Construir uma *pipeline* de Engenharia de Variáveis que extraia, pelo menos, duas novas métricas físicas baseadas nas regras de operação do equipamento, nomeadamente a diferença térmica (relevante para a previsão de *HDF*) e a potência calculada em rad/s (relevante para *PWF*).
+**Objetivo 2:** Construir uma pipeline de Engenharia de Variáveis capaz de criar novas métricas físicas derivadas dos sensores industriais, nomeadamente *Temp_diff* (diferença térmica) e *Power* (potência calculada), integrando-as na modelação preditiva para aumentar a capacidade de previsão do sistema.
 
-Este objetivo fundamenta-se nas regras físicas que determinam cada modo de falha no *dataset*. A criação explícita destas variáveis derivadas visa aumentar a capacidade preditiva dos modelos ao representar diretamente as relações causais entre os sensores e as falhas.
+Este objetivo baseia-se na incorporação de conhecimento físico e mecânico no modelo analítico, permitindo representar relações causais entre variáveis operacionais e os diferentes cenários de falha presentes no dataset.
 
-**Objetivo 3:** Desenvolver um modelo de classificação multiclasse capaz de distinguir e diagnosticar a causa raiz da falha entre os modos específicos (*TWF*, *HDF*, *PWF*, *OSF* e *RNF*), atingindo uma percentagem de Exatidão (*Accuracy*) superior a 80%.
+**Objetivo 3:** Comparar modelos baseline e modelos avançados de Machine Learning — incluindo Regressão Logística, Árvore de Decisão, Random Forest e XGBoost — selecionando a solução com melhor capacidade de generalização através da otimização de hiperparâmetros e validação cruzada.
 
-Além de prever *se* ocorre uma falha (Objetivo 1), este objetivo visa identificar *qual* o tipo de falha, fornecendo informação acionável para a manutenção. Uma Exatidão superior a 80% foi definida como critério de sucesso realista, tendo em conta o nível de sobreposição entre algumas classes de falha e a reduzida dimensão de algumas delas.
+Este objetivo visa identificar o algoritmo mais adequado para problemas de classificação industrial com classes desbalanceadas, utilizando métricas como F1-Score, ROC-AUC, Precision e Recall para suportar tecnicamente a escolha do modelo final.
+
+**Objetivo 4:** Desenvolver uma solução preditiva interpretável e aplicável a contextos industriais reais, capaz de identificar os fatores operacionais mais associados ao risco de avaria e apoiar processos de manutenção preditiva.
+
+Além de prever falhas, este objetivo pretende tornar os resultados compreensíveis para utilizadores não especializados em Ciência de Dados, facilitando a interpretação das decisões do modelo e o seu potencial uso em ambientes industriais reais.
 
 ---
 
