@@ -33,7 +33,7 @@ Este objetivo enquadra-se no principal problema de negócio do projeto: antecipa
 
 Este objetivo baseia-se na incorporação de conhecimento físico e mecânico no modelo analítico, permitindo representar relações causais entre variáveis operacionais e os diferentes cenários de falha presentes no dataset.
 
-**Objetivo 3:** Comparar modelos baseline e modelos avançados de Machine Learning — incluindo Regressão Logística, Árvore de Decisão, Random Forest e XGBoost — selecionando a solução com melhor capacidade de generalização através da otimização de hiperparâmetros e validação cruzada.
+**Objetivo 3:** Comparar modelos baseline e modelos avançados de Machine Learning, incluindo Regressão Logística, Árvore de Decisão, Random Forest e XGBoost, selecionando a solução com melhor capacidade de generalização através da otimização de hiperparâmetros e validação cruzada.
 
 Este objetivo visa identificar o algoritmo mais adequado para problemas de classificação industrial com classes desbalanceadas, utilizando métricas como F1-Score, ROC-AUC, Precision e Recall para suportar tecnicamente a escolha do modelo final.
 
