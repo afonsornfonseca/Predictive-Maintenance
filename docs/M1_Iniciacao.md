@@ -45,19 +45,22 @@ Além de prever falhas, este objetivo pretende tornar os resultados compreensív
 
 ## 3. Perguntas de Investigação
 
-As perguntas de investigação foram formuladas em alinhamento com os Objetivos SMART, visando ser respondidas com base nos modelos desenvolvidos e na análise dos dados, e não apenas pela exploração estatística descritiva.
+As perguntas de investigação foram reformuladas em alinhamento com os Objetivos SMART e com os resultados obtidos durante a análise exploratória e modelação preditiva, procurando compreender os principais fatores associados à ocorrência de falhas industriais e avaliar o desempenho dos modelos desenvolvidos.
 
-1. **De que forma a variante de qualidade da máquina (*L*, *M*, *H*) influencia a taxa de acumulação de desgaste da ferramenta (*Tool wear*) e altera os limiares críticos de falha por esforço excessivo (*OSF*)?**
-   Espera-se que os modelos e a análise exploratória revelem diferenças significativas na distribuição do desgaste e nos padrões de *OSF* entre os três tipos de produto.
+* **Quais são as variáveis operacionais que mais influenciam a ocorrência de falhas na variável *Machine failure*?**
+    Espera-se que variáveis como potência (*Power*), desgaste da ferramenta (*Tool wear*), binário (*Torque*) e velocidade de rotação apresentem forte influência na previsão de falhas industriais, sendo identificadas através da análise de importância das variáveis nos modelos treinados.
 
-2. **Qual a combinação de velocidade de rotação e binário (*Torque*) que mais frequentemente resulta numa falha de potência (*PWF*), e essa relação é capturada pela variável de potência calculada (Objetivo 2)?**
-   Esta pergunta valida diretamente a utilidade da *feature* derivada no Objetivo 2 e será respondida pela análise de importância de variáveis no modelo.
+* **De que forma as variáveis derivadas *Temp_diff* e *Power* contribuem para a melhoria do desempenho preditivo dos modelos?**
+    Esta questão procura validar a utilidade da Engenharia de Variáveis desenvolvida no projeto, analisando se a criação de novas métricas físicas melhora a capacidade de deteção de falhas e aumenta o F1-Score dos modelos.
 
-3. **De que forma a diferença entre a temperatura do processo e a temperatura ambiente interage com a velocidade de rotação na previsão de falhas por dissipação de calor (*HDF*)?**
-   Esta pergunta explora a relação causal entre variáveis térmicas e mecânicas, e será respondida tanto pela análise exploratória como pela interpretação do modelo treinado.
+* **Qual o algoritmo de Machine Learning mais adequado para lidar com o forte desequilíbrio presente no dataset?**
+    Pretende-se comparar modelos baseline e modelos avançados, analisando a sua capacidade de generalização através de métricas como Recall, Precision, F1-Score e ROC-AUC, especialmente na deteção da classe minoritária (falha).
 
-4. **Existem padrões operacionais (combinações de desgaste, temperatura e binário) que operam próximo dos limiares críticos de falha sem a registar, constituindo potenciais falsos alarmes na operação da máquina?**
-   Esta questão orienta a análise de fronteiras de decisão dos modelos e pode ter impacto direto na calibração dos alertas de manutenção preditiva.
+* **É possível prever falhas industriais com elevada taxa de deteção sem gerar um número excessivo de falsos alarmes?**
+    Esta questão investiga o equilíbrio entre Recall e Precision, procurando perceber até que ponto o modelo consegue maximizar a deteção de falhas reais sem comprometer a fiabilidade operacional do sistema.
+
+* **Que padrões operacionais estão mais associados ao risco de avaria da máquina?**
+    Esta pergunta procura identificar combinações críticas de variáveis mecânicas e térmicas que aumentem significativamente a probabilidade de falha, contribuindo para uma melhor interpretação do comportamento operacional da máquina e para futuras estratégias de manutenção preditiva.
 
 ---
 
