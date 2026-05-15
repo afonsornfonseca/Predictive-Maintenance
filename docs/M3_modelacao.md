@@ -77,7 +77,6 @@
 > **Nota:** As duas variáveis de Feature Engineering criadas no Milestone 2 `Power` e `Temp_diff` estão entre as mais importantes do modelo final, validando retrospetivamente a qualidade do trabalho de engenharia de atributos realizado.
 
 ## 5. Conclusão da Fase de Modelação
-*Justificação de por que razão este modelo está pronto para ser apresentado como solução final.*
 
 O modelo **XGBoost Otimizado** está pronto para ser apresentado como solução final. A jornada percorrida ao longo das três fases de experimentação demonstra uma progressão clara, fundamentada e orientada pelo problema de negócio:
 
