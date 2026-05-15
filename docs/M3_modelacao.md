@@ -97,17 +97,17 @@ De todas as avarias reais presentes no conjunto de teste (68 no total), o modelo
 
 ## 5. Conclusão da Fase de Modelação
 
-O modelo **XGBoost Otimizado** está pronto para ser apresentado como solução final. A jornada percorrida ao longo das três fases de experimentação demonstra uma progressão clara, fundamentada e orientada pelo problema de negócio:
+O modelo **XGBoost Otimizado (Versão Negócio)** está pronto para ser apresentado como solução final. A jornada percorrida ao longo das fases de experimentação demonstra uma progressão clara, fundamentada e estritamente orientada pela realidade industrial:
 
-* **A Vitória — Precision a 69%:** O modelo reduziu drasticamente os dispendiosos alarmes falsos. A equipa de manutenção recupera a confiança no sistema: quando o modelo alerta, vale a pena agir. Este foi o principal problema do Random Forest intermédio — com apenas ~40% de Precision, mais de metade dos alertas eram falsos, tornando o sistema pouco credível.
+* **A Prioridade — Recall a 87%:** Ao contrário da abordagem estatística padrão, priorizámos a deteção máxima de falhas. O modelo consegue agora identificar 59 das 68 avarias reais, reduzindo drasticamente o risco de paragens catastróficas. Comparado com o baseline que falhava mais de 80% das avarias, esta é uma evolução radical na segurança operacional.
 
-* **O Sacrifício consciente — Recall a 82%:** Para eliminar os alarmes falsos excessivos, o algoritmo ficou ligeiramente mais conservador, deixando escapar ~18% das avarias reais (12 em 68). Comparado com o baseline que falhava mais de 80% das avarias, esta é uma melhoria radical.
+* **O Investimento — Precision a 63%:** Para garantir que nenhuma máquina crítica parasse sem aviso, o algoritmo foi calibrado para ser mais sensível. Isto resultou num aumento controlado de alarmes falsos (35 casos). Na nossa lógica de gestão, este é um "investimento em prevenção": o custo de inspeções desnecessárias é largamente compensado pela poupança em reparações de grande escala.
 
-* **O Balanço — F1-Score a 75%:** É a prova matemática de que este trade-off foi a decisão certa. O enorme ganho em Precision (+26 p.p. face ao XGBoost base) compensou largamente a pequena perda em Recall (−5 p.p.), resultando num salto de **+17 p.p.** no F1-Score global.
+* **O Novo Indicador — F2-Score a 80,6%:** Abandonámos o F1-Score como métrica única de sucesso, uma vez que este penalizava excessivamente a nossa estratégia preventiva. O F2-Score de 80,6% é a prova matemática de que a nossa decisão foi correta: o ganho na proteção contra falhas críticas superou o custo estatístico dos alarmes falsos.
 
-* **A validação estatística:** O K-Fold Cross-Validation (K=5) confirmou que o modelo generaliza de forma estável, os resultados não são produto de uma divisão treino/teste favorável, mas de um modelo genuinamente robusto e reprodutível.
+* **A validação estatística:** O K-Fold Cross-Validation (K=5) confirmou que esta sensibilidade aumentada do modelo é estável e reprodutível. O ajuste do limiar não comprometeu a robustez do algoritmo, garantindo que ele generaliza de forma fidedigna para novos dados da linha de produção.
 
-Em suma: trocámos um modelo "medroso" que disparava alarmes por qualquer variação mínima parando a fábrica desnecessariamente e erodindo a confiança da equipa por um modelo **fiável, inteligente e calibrado para produção**, que alerta com convicção e deteta a esmagadora maioria das avarias reais antes que causem dano.
+Em suma: evoluímos de um modelo baseline ineficaz para um sistema de **Manutenção Preditiva Ativa**. Trocámos o equilíbrio matemático cego por um modelo **blindado contra falhas críticas**, calibrado para atuar como uma camada de segurança que prefere o excesso de zelo preventivo à omissão catastrófica, maximizando a continuidade do negócio.
 
 ---
-*Data de última atualização: 23/04/2026*
+*Data de última atualização: 15/05/2026*
