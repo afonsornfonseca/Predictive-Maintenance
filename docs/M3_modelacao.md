@@ -36,6 +36,7 @@
 
 ## 3. Otimização (Tuning)
 *Como melhorámos o melhor modelo.*
+### 3.1. 3.1. Otimização de Hiperparâmetros (GridSearchCV)
 
 * **Técnica Utilizada:** Aplicámos `GridSearchCV` com validação cruzada estratificada de 5 dobras (`StratifiedKFold`, `cv=5`) sobre o XGBoost, com foco exclusivo no **F1-Score** como critério de seleção. A grelha explorada concentrou-se em hiperparâmetros que combatem o overfitting observado no modelo base (F1 Treino: 69,1% vs F1 Teste: 57,8%):
 
@@ -50,7 +51,8 @@
 | Fase | F1-Score (Treino) | F1-Score (Teste) | Δ Teste |
 | :--- | :--- | :--- | :--- |
 | XGBoost Base | 69,1% | 57,8% | — |
-| **XGBoost Otimizado** | **94,6%** | **75,2%** | **+17,4 p.p.** |
+| XGBoost Otimizado (GridSearchCV) | 94,6% | 75,2% | +17,4 p.p. |
+| **Ajuste de Limiar (Negócio)** | **94,6%** | **73,0%** | **+15,2 p.p.*** |
 
 ### 3.2. Ajuste do Limiar Orientado ao Negócio (Threshold Tuning)
 
