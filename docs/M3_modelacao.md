@@ -85,13 +85,13 @@ De todas as avarias reais presentes no conjunto de teste (68 no total), o modelo
 ### 4.2. Importância dos Atributos (Feature Importance)
 *Variáveis que o modelo considerou mais importantes para decidir.*
 
-1. **Power** *(Torque × Rotational Speed)* — variável criada em Feature Engineering; a mais importante do modelo. Captura o esforço mecânico total do sistema num único indicador composto.
-2. **Tool wear [min]** — o desgaste acumulado da ferramenta é o segundo preditor mais forte, refletindo a degradação progressiva do equipamento ao longo do tempo de operação.
-3. **Torque [Nm]** — esforço de rotação; valores extremos correlacionam-se fortemente com avaria iminente.
-4. **Rotational speed [rpm]** — desvios da velocidade nominal são sinais de alerta precoce de instabilidade mecânica.
-5. **Temp_diff** *(Process Temp − Air Temp)* — variável criada em Feature Engineering; diferenças térmicas anómalas precedem frequentemente falhas mecânicas.
-6. **Air / Process temperature [K]** — as temperaturas absolutas contribuem de forma complementar à diferença térmica.
-7. **Type_Encoded** — o tipo de produto (L/M/H) tem influência menor, mas estatisticamente confirmada pelo modelo.
+1. **Power** *(Torque × Rotational Speed)* :variável criada em Feature Engineering; a mais importante do modelo. Captura o esforço mecânico total do sistema num único indicador composto.
+2. **Tool wear [min]** : o desgaste acumulado da ferramenta é o segundo preditor mais forte, refletindo a degradação progressiva do equipamento ao longo do tempo de operação.
+3. **Torque [Nm]** : esforço de rotação; valores extremos correlacionam-se fortemente com avaria iminente.
+4. **Rotational speed [rpm]** : desvios da velocidade nominal são sinais de alerta precoce de instabilidade mecânica.
+5. **Temp_diff** *(Process Temp : Air Temp)* : variável criada em Feature Engineering; diferenças térmicas anómalas precedem frequentemente falhas mecânicas.
+6. **Air / Process temperature [K]** : as temperaturas absolutas contribuem de forma complementar à diferença térmica.
+7. **Type_Encoded** : o tipo de produto (L/M/H) tem influência menor, mas estatisticamente confirmada pelo modelo.
 
 > **Nota:** As duas variáveis de Feature Engineering criadas no Milestone 2 `Power` e `Temp_diff` estão entre as mais importantes do modelo final, validando retrospetivamente a qualidade do trabalho de engenharia de atributos realizado.
 
@@ -99,11 +99,11 @@ De todas as avarias reais presentes no conjunto de teste (68 no total), o modelo
 
 O modelo **XGBoost Otimizado (Versão Negócio)** está pronto para ser apresentado como solução final. A jornada percorrida ao longo das fases de experimentação demonstra uma progressão clara, fundamentada e estritamente orientada pela realidade industrial:
 
-* **A Prioridade — Recall a 87%:** Ao contrário da abordagem estatística padrão, priorizámos a deteção máxima de falhas. O modelo consegue agora identificar 59 das 68 avarias reais, reduzindo drasticamente o risco de paragens catastróficas. Comparado com o baseline que falhava mais de 80% das avarias, esta é uma evolução radical na segurança operacional.
+* **A Prioridade: Recall a 87%:** Ao contrário da abordagem estatística padrão, priorizámos a deteção máxima de falhas. O modelo consegue agora identificar 59 das 68 avarias reais, reduzindo drasticamente o risco de paragens catastróficas. Comparado com o baseline que falhava mais de 80% das avarias, esta é uma evolução radical na segurança operacional.
 
-* **O Investimento — Precision a 63%:** Para garantir que nenhuma máquina crítica parasse sem aviso, o algoritmo foi calibrado para ser mais sensível. Isto resultou num aumento controlado de alarmes falsos (35 casos). Na nossa lógica de gestão, este é um "investimento em prevenção": o custo de inspeções desnecessárias é largamente compensado pela poupança em reparações de grande escala.
+* **O Investimento: Precision a 63%:** Para garantir que nenhuma máquina crítica parasse sem aviso, o algoritmo foi calibrado para ser mais sensível. Isto resultou num aumento controlado de alarmes falsos (35 casos). Na nossa lógica de gestão, este é um "investimento em prevenção": o custo de inspeções desnecessárias é largamente compensado pela poupança em reparações de grande escala.
 
-* **O Novo Indicador — F2-Score a 80,6%:** Abandonámos o F1-Score como métrica única de sucesso, uma vez que este penalizava excessivamente a nossa estratégia preventiva. O F2-Score de 80,6% é a prova matemática de que a nossa decisão foi correta: o ganho na proteção contra falhas críticas superou o custo estatístico dos alarmes falsos.
+* **O Novo Indicador: F2-Score a 80,6%:** Abandonámos o F1-Score como métrica única de sucesso, uma vez que este penalizava excessivamente a nossa estratégia preventiva. O F2-Score de 80,6% é a prova matemática de que a nossa decisão foi correta: o ganho na proteção contra falhas críticas superou o custo estatístico dos alarmes falsos.
 
 * **A validação estatística:** O K-Fold Cross-Validation (K=5) confirmou que esta sensibilidade aumentada do modelo é estável e reprodutível. O ajuste do limiar não comprometeu a robustez do algoritmo, garantindo que ele generaliza de forma fidedigna para novos dados da linha de produção.
 
