@@ -51,6 +51,16 @@
 | :--- | :--- | :--- | :--- |
 | XGBoost Base | 69,1% | 57,8% | — |
 | **XGBoost Otimizado** | **94,6%** | **75,2%** | **+17,4 p.p.** |
+
+### 3.2. Ajuste do Limiar Orientado ao Negócio (Threshold Tuning)
+
+*Descrição da adaptação matemática do modelo à realidade financeira da operação.*
+
+* **Técnica Utilizada:** Após atingirmos um F1-Score de 75,2% através do GridSearchCV, identificámos um trade-off clássico entre a estatística pura e a realidade industrial. A otimização baseada no F1-Score mantinha o limiar de decisão padrão (0.50), penalizando com o mesmo peso quer um falso alarme (inspeção desnecessária), quer uma avaria imprevista (paragem catastrófica). Como a política de manutenção preditiva da organização dita que o custo de uma paragem não planeada supera largamente o custo de uma inspeção de rotina, substituímos a métrica de otimização pelo **F2-Score** (Beta=2). Esta técnica força o algoritmo a dar o dobro do peso à deteção de falhas (Recall) em detrimento da precisão absoluta. Ao recalcular a curva Precision-Recall, o algoritmo identificou que o novo limiar ótimo se situa nos **0.3721**.
+
+* **Melhoria obtida:** A aplicação deste novo limite gerou um impacto drástico e perfeitamente alinhado com as necessidades financeiras e operacionais da fábrica. O modelo tornou-se mais sensível aos primeiros sintomas de desgaste e atingiu um **F2-Score final de 80,6%**. O verdadeiro ganho observou-se na capacidade de deteção (Recall), que subiu para **87,0%**, reduzindo as avarias imprevistas (Falsos Negativos) para apenas 9 casos em 2000 instâncias de teste. Para atingir este nível de segurança, assumimos conscientemente uma quebra na Precision — o que gerou 35 Falsos Positivos e fez o F1-Score descer para 73,0%. Esta descida matemática valida a nossa premissa de negócio: realizar algumas dezenas de inspeções preventivas desnecessárias é um "erro" altamente rentável para garantir que quase nenhuma falha catastrófica passa despercebida.
+
+  
 ## 4. Avaliação do Modelo Final
 ### 4.1. Matriz de Confusão / Erros
 *Onde o modelo mais falha.*
