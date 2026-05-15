@@ -69,14 +69,17 @@
   
 ## 4. Avaliação do Modelo Final
 ### 4.1. Matriz de Confusão / Erros
-*Onde o modelo mais falha.*
 
-| | Previsto: Não Falha | Previsto: Falha |
+*Onde o modelo mais falha e o impacto das suas decisões.*
+
+| | Previsto: Não Falha (0) | Previsto: Falha (1) |
 | :--- | :--- | :--- |
-| **Real: Não Falha** |  1907 |  25 |
-| **Real: Falha** |  12 |  56 |
+| **Real: Não Falha (0)** | 1897 | 35 |
+| **Real: Falha (1)** | 9 | 59 |
 
- **Análise:** Em 2000 instâncias de teste, o modelo apenas se enganou em **37 casos** (25 + 12). Destes erros, os mais "baratos" são os **25 falsos positivos** (alarmes falsos (a fábrica faz uma inspeção desnecessária mas a máquina está bem)) e os mais "caros" são os **12 falsos negativos** (avarias reais que escaparam sem deteção). De todas as avarias reais presentes no conjunto de teste (68 no total), o modelo detetou **56 corretamente e deixou escapar apenas 12**, um Recall de 82,4%. Quando emite um alarme, tem razão em **69,1% das vezes** (Precision). O principal padrão de erro residual são máquinas que apresentam leituras de Torque e Tool Wear próximas dos limiares normais, situações em que a degradação é ainda incipiente e os sinais não são suficientemente distintivos para o modelo classificar com confiança.
+**Análise:** Em 2000 instâncias de teste, o modelo assumiu um total de 44 erros (35 + 9), um reflexo direto do ajuste do limiar orientado ao negócio. Destes erros, a grande maioria (35) corresponde a **falsos positivos** — os erros mais "baratos" (a fábrica faz uma inspeção desnecessária, mas a máquina está bem). Em contrapartida, o modelo reduziu os erros "caros" (**falsos negativos**, avarias que escapam sem deteção e causam paragens graves) para apenas 9. 
+
+De todas as avarias reais presentes no conjunto de teste (68 no total), o modelo detetou 59 corretamente, alcançando um excelente **Recall de 87%**. Como consequência natural desta sensibilidade aumentada (o modelo está mais "cauteloso" e alerta mais cedo), quando emite um alarme tem razão em 63% das vezes (Precision). O principal padrão de erro residual são agora alarmes falsos em máquinas que apresentam flutuações ligeiras no Torque ou na Potência, situações normais onde o modelo prefere errar por excesso de zelo preventivo do que arriscar uma falha catastrófica da linha de produção.
 
 ---
 ### 4.2. Importância dos Atributos (Feature Importance)
