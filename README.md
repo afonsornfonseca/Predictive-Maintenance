@@ -73,15 +73,15 @@ Assim, este projeto pretende explorar dados de funcionamento de máquinas indust
 O projeto desenvolveu um sistema de Manutenção Preditiva Industrial baseado em XGBoost, capaz de prever falhas de equipamento com um Recall de 87% e F2-Score de 80,6%, superando os objetivos definidos inicialmente. O modelo analisa cinco variáveis operacionais em tempo real (potência estimada, desgaste da ferramenta, binário, velocidade de rotação e diferença térmica) e emite alertas antes da ocorrência de avarias, permitindo à organização substituir uma política reativa por uma abordagem preditiva e orientada ao risco. Das 68 avarias reais no conjunto de teste, 59 foram detetadas atempadamente, reduzindo os custos de paragem não planeada a uma fração dos valores típicos de manutenção corretiva.
 
 ### Recomendações de Inovação
-1.Implementar SMOTE para geração de instâncias sintéticas de falha e potencialmente elevar o F1-Score acima dos 80%;
+1. Implementar SMOTE para geração de instâncias sintéticas de falha e potencialmente elevar o F1-Score acima dos 80%;
 
-2.Integrar valores SHAP para explicabilidade individual de cada alerta emitido pelo modelo;
+2. Integrar valores SHAP para explicabilidade individual de cada alerta emitido pelo modelo;
 
-3.Incorporar a dimensão temporal dos registos e testar modelos de séries temporais (LSTM) para capturar padrões de degradação progressiva;
+3. Incorporar a dimensão temporal dos registos e testar modelos de séries temporais (LSTM) para capturar padrões de degradação progressiva;
 
-4.Expandir o modelo para classificação multi-classe dos tipos de falha (TWF, HDF, PWF, OSF), identificando o componente em risco e não apenas a falha global;
+4. Expandir o modelo para classificação multi-classe dos tipos de falha (TWF, HDF, PWF, OSF), identificando o componente em risco e não apenas a falha global;
 
-5.Desenvolver uma interface Streamlit para uso em tempo real por técnicos de manutenção sem conhecimentos de programação.
+5. Desenvolver uma interface Streamlit para uso em tempo real por técnicos de manutenção sem conhecimentos de programação.
 
 ## Como Reproduzir este Projeto
 1. Clone o repositório: `git clone [url-do-repo]`
