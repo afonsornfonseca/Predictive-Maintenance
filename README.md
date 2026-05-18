@@ -1,4 +1,10 @@
 # Previsão de Falhas em Máquinas Industriais com Recurso a Machine Learning 
+
+## Resumo 
+A manufatura industrial moderna enfrenta um desafio permanente: garantir a continuidade operacional dos equipamentos sem incorrer nos custos elevados das paragens não planeadas. As abordagens tradicionais de manutenção, reativa, que intervém apenas após a avaria, e preventiva, que segue calendários fixos independentemente do estado real do equipamento, revelam-se sistematicamente ineficientes, quer por chegarem tarde demais, quer por desperdiçarem recursos em intervenções desnecessárias.
+Este projeto propõe uma resposta a este problema através da Manutenção Preditiva, uma abordagem que utiliza dados recolhidos continuamente por sensores industriais para antecipar falhas antes da sua ocorrência. Recorrendo ao dataset AI4I 2020 Predictive Maintenance, que simula o funcionamento real de uma máquina industrial com 10.000 registos de variáveis como temperatura, velocidade de rotação, binário e desgaste da ferramenta, o projeto desenvolve e compara modelos de Machine Learning capazes de identificar padrões operacionais associados ao risco de avaria.
+O objetivo central não é apenas técnico, é operacional. Pretende-se construir uma solução que consiga detetar o máximo de falhas reais, minimizando o risco de paragens catastróficas, e que ao mesmo tempo seja interpretável e aplicável por equipas de manutenção em contexto industrial real. A metodologia seguida é o CRISP-DM, percorrendo as fases de compreensão do negócio, análise exploratória, engenharia de atributos, modelação e avaliação orientada ao impacto.
+
 ## Identificação da Equipa
 * **Grupo nº:** 3
 * **Membros:**
