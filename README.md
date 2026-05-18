@@ -13,6 +13,10 @@ A estrutura deste projeto segue as boas práticas de Ciência de Dados e Engenha
 * **`src/`**: Código-fonte modular (scripts `.py`) para funções reutilizáveis.
 * **`reports/`**: Relatórios finais, apresentações e exportação de figuras (`figures/`).
 * **`requirements.txt`**: Ficheiro de configuração com as bibliotecas necessárias.
+
+## Link do Vídeo
+https://drive.google.com/drive/folders/1X81-cUIQoKlxWuukNhd6Xk227XIexHt4?usp=sharing
+
 ## 1. Iniciação (*Milestone 1*)
 ### Contexto e Problema de Negócio
 O presente projeto insere-se no contexto da indústria, onde a operação contínua e eficiente dos equipamentos é fundamental para garantir produtividade e controlo de custos.
@@ -86,6 +90,7 @@ O projeto desenvolveu um sistema de Manutenção Preditiva Industrial baseado em
 4. Expandir o modelo para classificação multi-classe dos tipos de falha (*TWF, HDF, PWF, OSF*), identificando o componente em risco e não apenas a falha global;
 
 5. Desenvolver uma interface Streamlit para uso em tempo real por técnicos de manutenção sem conhecimentos de programação.
+
 
 ## Como Reproduzir este Projeto
 1. Clone o repositório: `git clone [url-do-repo]`
