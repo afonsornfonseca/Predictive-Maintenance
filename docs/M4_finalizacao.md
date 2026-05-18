@@ -72,13 +72,27 @@ Dado que o conjunto de dados é sintético e não envolve decisões sobre pessoa
 
 
 ## 4. Roadmap e Trabalhos Futuros
-> **Nota:** Sugestões concretas para quem quiser continuar ou escalar este projeto.
-1. **Melhoria Técnica:** (Ex: "Implementar técnicas de reamostragem (SMOTE) para lidar melhor
-com o desequilíbrio das classes.")
-2. **Novas Variáveis:** (Ex: "Integrar dados meteorológicos ou sazonais para refinar as previsões
-de venda.")
-3. **Escalabilidade (Deployment):** (Ex: "Desenvolver uma interface web (Streamlit) para que o
-modelo possa ser utilizado por utilizadores não-técnicos em tempo real.")
+## 4.1. Melhorias Técnicas Imediatas
+1.	Implementar SMOTE (Synthetic Minority Over-sampling Technique) ou ADASYN para gerar instâncias sintéticas de falha e melhorar a fronteira de decisão do modelo. Estima-se que esta técnica, combinada com o XGBoost otimizado, possa elevar o F1-Score acima dos 80%;
+   
+2.	Integrar valores SHAP (SHapley Additive exPlanations) para explicabilidade ao nível da previsão individual, permitindo que o sistema justifique cada alerta específico com as variáveis que mais contribuíram para aquela decisão;
+   
+3.	Testar modelos de ensemble híbridos (stacking de XGBoost com LightGBM ou CatBoost) que possam capturar padrões complementares nos dados, especialmente na zona limiar de decisão.
+
+## 4.2. Expansão dos Dados e Novas Variáveis
+1.	Incorporar a dimensão temporal dos registos, permitindo a aplicação de modelos de series temporais (LSTM, GRU) capazes de detetar padrões de degradação progressiva que os modelos estáticos não conseguem capturar;
+   
+2.	Integrar variáveis externas relevantes como dados de manutenção histórica (intervenções passadas, substituições de componentes) e condições ambientais adicionais (humidade, vibração), enriquecendo o perfil de cada máquina;
+   
+3.	Explorar a previsão multi-classe dos tipos específicos de falha (TWF, HDF, PWF, OSF), que permitiria não apenas alertar para a avaria iminente, mas identificar qual o componente em risco, aumentando substancialmente o valor operacional do sistema.
+
+## 4.3. Escalabilidade e Deployment
+1.	Desenvolver uma interface web interativa (Streamlit ou Dash) que permita a técnicos de manutenção introduzir leituras de sensores em tempo real e obter a probabilidade de falha instantaneamente, sem necessidade de conhecimentos de programação;
+2.	Implementar um pipeline de monitorização que detete automaticamente quando a distribuição dos dados de produção se afasta dos dados de treino, acionando um processo de retraining com dados atualizados;
+3.	Integrar o modelo com sistemas MES (Manufacturing Execution System) ou SCADA existentes nas fábricas, permitindo a emissão automática de ordens de trabalho de manutenção quando a probabilidade de falha ultrapassa o limiar calibrado.
+
+
+
 ---
 **Data de Conclusão:** [Inserir Data]
 **Versão do Projeto:** v4.0 Final---
