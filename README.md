@@ -65,8 +65,12 @@ Assim, este projeto pretende explorar dados de funcionamento de máquinas indust
 > Os resultados obtidos permitiram compreender melhor os fatores que influenciam a ocorrência de falhas e orientar as decisões de modelação.
 ## 3. Modelação (Milestone 3)
 ### Abordagem Técnica
-* **Modelos:** Foram avaliados diferentes modelos de classificação supervisionada. Inicialmente, foram implementados modelos baseline (Regressão Logística e Árvore de Decisão) para estabelecer um ponto de referência. Posteriormente, foram testados modelos mais complexos, nomeadamente Random Forest e XGBoost, tendo este último sido selecionado como modelo final após otimização de hiperparâmetros, devido ao seu desempenho superior.
-* **Métrica Principal:** A métrica principal utilizada foi o F1-Score, uma vez que permite avaliar o equilíbrio entre *precision* e *recall*. Esta escolha justifica-se pelo desbalanceamento da variável alvo e pela necessidade de minimizar falsos negativos, dado o impacto crítico de falhas não detetadas no contexto de manutenção preditiva.
+* **Modelos:** Foram avaliados diferentes modelos de classificação supervisionada. Inicialmente, foram implementados modelos baseline (Regressão Logística e Árvore de Decisão) para estabelecer um ponto de referência. Posteriormente, foram testados modelos mais complexos, nomeadamente Random Forest e XGBoost, tendo este último sido selecionado como modelo final após otimização de hiperparâmetros via GridSearchCV (5-fold estratificado), devido ao seu desempenho superior.
+
+* **Métrica Principal:** A métrica de otimização evoluiu ao longo do projeto. O F1-Score guiou a fase de GridSearchCV, atingindo 75,2% no conjunto de teste. Posteriormente, adotou-se o F2-Score (beta=2) como métrica de negócio, que atribui o dobro do peso ao Recall face à Precision, refletindo a assimetria de custos real: uma avaria não detetada tem impacto incomparavelmente superior ao de uma inspeção desnecessária.
+  
+* **Ajuste de Limiar:** O limiar de decisão padrão (0,50) foi substituído pelo limiar ótimo 0,3721, identificado pela curva Precision-Recall com critério F2-Score. Esta calibração elevou o Recall de ~63% para 87,0%, reduzindo os falsos negativos para apenas 9 em 2000 instâncias de teste, ao custo controlado de 35 falsos positivos.
+
 ## 4. Finalização (Milestone 4)
 ### Resposta ao Problema
 
