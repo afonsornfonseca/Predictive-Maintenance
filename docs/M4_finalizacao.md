@@ -91,8 +91,21 @@ Dado que o conjunto de dados é sintético e não envolve decisões sobre pessoa
 2.	Implementar um pipeline de monitorização que detete automaticamente quando a distribuição dos dados de produção se afasta dos dados de treino, acionando um processo de retraining com dados atualizados;
 3.	Integrar o modelo com sistemas MES (Manufacturing Execution System) ou SCADA existentes nas fábricas, permitindo a emissão automática de ordens de trabalho de manutenção quando a probabilidade de falha ultrapassa o limiar calibrado.
 
+## 5. Reflexão Final da Equipa
+Este projeto demonstrou, de forma empírica e quantificável, que é possível construir um sistema de Manutenção Preditiva robusto com dados acessíveis, metodologia rigorosa e uma compreensão profunda do problema de negócio que o modelo serve.
+
+A jornada percorrida ao longo dos quatro milestones revelou lições fundamentais:
+
+•	A métrica certa importa mais do que o modelo certo: a decisão de abandonar a Accuracy em favor do F1-Score e, posteriormente, do F2-Score, foi o passo que separou um modelo estatisticamente bonito de um modelo operacionalmente útil;
+
+•	O conhecimento de domínio é insubstituível: as variáveis Power e Temp_diff, criadas a partir de princípios físicos e mecânicos na Milestone 2, tornaram-se as duas variáveis mais importantes do modelo final, validando que a Engenharia de Atributos com contexto supera a força bruta computacional;
+
+•	A decisão de negócio deve guiar o modelo, não o contrário: a calibração do limiar para 0,3721 com base na assimetria de custos (FN muito mais caro que FP) transformou o XGBoost de uma solução tecnicamente competente numa ferramenta de gestão do risco industrial.
+
+O modelo final, XGBoost Otimizado com Ajuste de Limiar Orientado ao Negócio, representa uma evolução radical face ao baseline inicial: de um algoritmo que falhava 80% das avarias para um sistema blindado contra falhas críticas, com Recall de 87% e F2-Score de 80,6%, pronto para ser escalado para um ambiente industrial real.
+
 
 
 ---
-**Data de Conclusão:** [Inserir Data]
+**Data de Conclusão:** 18/05/2026
 **Versão do Projeto:** v4.0 Final---
