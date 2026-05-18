@@ -108,4 +108,5 @@ O modelo final, XGBoost Otimizado com Ajuste de Limiar Orientado ao Negócio, re
 
 ---
 **Data de Conclusão:** 18/05/2026
+
 **Versão do Projeto:** v4.0 Final---
