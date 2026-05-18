@@ -1,5 +1,5 @@
 # Relatório de Conclusão e Entrega de Valor (Milestone 4)
-## 1. Síntese de Resultados e Impacto
+### 1. Síntese de Resultados e Impacto
 ## 1.1. O Problema Resolvido
 O projeto partiu de um desafio critico na manufatura industrial moderna: as abordagens tradicionais de manutenção, reativa (intervir após a avaria) e preventiva (intervir por calendário fixo), revelam-se sistematicamente ineficientes. A manutenção reativa origina paragens de produção imprevistos com custos catastróficos; a preventiva substitui componentes ainda funcionas, gerando desperdício de recursos.
 
