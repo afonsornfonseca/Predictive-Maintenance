@@ -99,6 +99,8 @@ De todas as avarias reais presentes no conjunto de teste (68 no total), o modelo
 
 O modelo **XGBoost Otimizado (Versão Negócio)** está pronto para ser apresentado como solução final. A jornada percorrida ao longo das fases de experimentação demonstra uma progressão clara, fundamentada e estritamente orientada pela realidade industrial:
 
+* **O Porquê do F2-Score:** O F1-Score penaliza com o mesmo peso uma inspeção desnecessária e uma avaria não detetada, uma simetria matematicamente neutra mas operacionalmente errada neste contexto. O F2-Score (beta=2) corrige isto formalmente, atribuindo o dobro do peso ao Recall face à Precision. Foi este critério que guiou a identificação do limiar ótimo em 0.3721 e tornou possível alinhar o modelo com a política de manutenção da organização.
+
 * **A Prioridade: Recall a 87%:** Ao contrário da abordagem estatística padrão, priorizámos a deteção máxima de falhas. O modelo consegue agora identificar 59 das 68 avarias reais, reduzindo drasticamente o risco de paragens catastróficas. Comparado com o baseline que falhava mais de 80% das avarias, esta é uma evolução radical na segurança operacional.
 
 * **O Investimento: Precision a 63%:** Para garantir que nenhuma máquina crítica parasse sem aviso, o algoritmo foi calibrado para ser mais sensível. Isto resultou num aumento controlado de alarmes falsos (35 casos). Na nossa lógica de gestão, este é um "investimento em prevenção": o custo de inspeções desnecessárias é largamente compensado pela poupança em reparações de grande escala.
