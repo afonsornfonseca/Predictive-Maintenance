@@ -1,6 +1,6 @@
 # Relatório de Conclusão e Entrega de Valor (Milestone 4)
 ## 1. Síntese de Resultados e Impacto
-1.1. O Problema Resolvido
+## 1.1. O Problema Resolvido
 O projeto partiu de um desafio critico na manufatura industrial moderna: as abordagens tradicionais de manutenção, reativa (intervir após a avaria) e preventiva (intervir por calendário fixo), revelam-se sistematicamente ineficientes. A manutenção reativa origina paragens de produção imprevistos com custos catastróficos; a preventiva substitui componentes ainda funcionas, gerando desperdício de recursos.
 
 O objetivo definido na Milestone 1 era claro: desenvolver um modelo de classificação binaria capaz de prever a ocorrência de falha na variável Machine failure, atingindo um F1-Score mínimo de 0,75 e um Recall superior a 80% na classe positiva (falha).
@@ -57,10 +57,20 @@ O conjunto de dados AI4I 2020 e um conjunto de dados simulados, construído para
 
 
 ## 3. Considerações Éticas e de Viés
-* **Privacidade:** (Ex: "Todos os identificadores pessoais foram removidos, garantindo que o
-modelo analisa apenas padrões de comportamento anónimos.")
-* **Transparência:** (Ex: "Utilizámos técnicas de 'Feature Importance' para garantir que as
-decisões do modelo são explicáveis e não operam como uma 'caixa negra'.")
+## 3.1. Privacidade e Conformidade com o RGPD
+O conjunto de dados utilizado não contém qualquer dado pessoal ou identificador individual. Todas as variáveis referem-se exclusivamente a medições operacionais de equipamento industrial (temperatura, velocidade, binário, desgaste). O projeto enquadra-se integralmente na exceção académica do RGPD e não levanta quaisquer questões de privacidade ou proteção de dados.
+
+## 3.2. Transparência e Explicabilidade
+A solução adotada privilegiou a explicabilidade operacional através de dois mecanismos:
+
+•	Feature Importance do XGBoost: o modelo fornece uma hierarquia clara das variáveis que mais influenciam as suas previsões (Power, Tool wear, Torque, Rotational speed, Temp_diff), permitindo que técnicos de manutenção compreendam e questionem as decisões do algoritmo;
+
+•	Justificação do ajuste de limiar: a escolha do limiar 0,3721 e do F2-Score foi documentada e fundamentada na política de negócio (custo assimétrico entre falsos negativos e falsos positivos), tornando o modelo auditável e a sua logica compreensível para gestores não técnicos.
+
+## 3.3. Potencial de Viés
+Dado que o conjunto de dados é sintético e não envolve decisões sobre pessoas, o risco de viés discriminatório é nulo. Contudo, importa notar que o modelo pode apresentar viés de distribuição caso seja aplicado a máquinas com perfis operacionais substancialmente diferentes dos dados de treino, um risco técnico e não ético, mas que deve ser monitorizado em produção.
+
+
 ## 4. Roadmap e Trabalhos Futuros
 > **Nota:** Sugestões concretas para quem quiser continuar ou escalar este projeto.
 1. **Melhoria Técnica:** (Ex: "Implementar técnicas de reamostragem (SMOTE) para lidar melhor
