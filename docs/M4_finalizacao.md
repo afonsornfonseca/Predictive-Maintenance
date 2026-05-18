@@ -8,7 +8,7 @@ O objetivo definido na Milestone 1 era claro: desenvolver um modelo de classific
 Este objetivo foi totalmente alcançado. O modelo final, XGBoost otimizado com ajuste de limiar orientado ao negócio, atingiu um Recall de 87,0% e um F2-Score de 80,6%, superando ambos os critérios de sucesso definidos inicialmente.
 
 
-1.2. Interpretação dos Resultados
+## 1.2. Interpretação dos Resultados
 Em linguagem acessível: o modelo analisa, em tempo real, cinco variáveis operacionais da máquina (temperatura, velocidade de rotação, binário, desgaste da ferramenta e potencia estimada) e emite um alerta sempre que a combinação desses valores ultrapassa os padrões históricos associados a avarias iminentes.
 
 Em termos concretos, aplicado ao conjunto de teste (2000 instâncias), o modelo obteve os seguintes resultados:
@@ -16,33 +16,43 @@ Em termos concretos, aplicado ao conjunto de teste (2000 instâncias), o modelo 
 
 Das 68 avarias reais presentes no conjunto de teste, 59 foram corretamente identificadas pelo modelo. Apenas 9 avarias passaram despercebidas, uma taxa de falha residual de 13%, um resultado operacionalmente significativo comparado com o modelo baseline que ignorava mais de 80% das avarias.
 
-1.3. Valor para o Negócio
+## 1.3. Valor para o Negócio
 A tradução financeira deste modelo e direta. Num contexto industrial típico, uma paragem não planeada pode custar entre dezenas a centenas de milhares de euros por hora (dependendo da linha de produção e do setor), enquanto uma inspeção preventiva desnecessária representa apenas o custo de manutenção de rotina, estimado em menos de 5% desse valor.
 
 Com este modelo implementado, a organização industrial beneficia de:
+
 •	Redução de aproximadamente 87% das avarias imprevistos detetadas atempadamente, permitindo agendar intervenções em janelas de manutenção planeadas;
+
 •	Minimização do risco de danos em cadeia: avarias não detetadas comprometem frequentemente componentes adjacentes, multiplicando o custo da reparação;
+
 •	Otimização dos recursos de manutenção: as equipas técnicas podem priorizar as máquinas sinalizadas pelo modelo em vez de proceder a inspeções sistemáticas calendarizadas;
+
 •	Fundamento quantitativo para decisões de gestão: a importância das variáveis do modelo oferece insight para ajustar parâmetros operacionais (limites de binário, ciclos de substituição de ferramentas) antes do ponto de falha;
 
 Em síntese: o sistema transita de uma politica de 'esperar a avaria' para uma politica de 'antecipar e prevenir', com validação estatística robusta.
 
 ## 2. Análise Crítica e Limitações
-2.1. Limitações dos Dados
+## 2.1. Limitações dos Dados
 O conjunto de dados AI4I 2020 e um conjunto de dados simulados, construído para replicar o comportamento operacional de uma máquina industrial genérica. Embora seja amplamente utilizado na comunidade académica e valide metodologias de Machine Learning, importa reconhecer as seguintes restrições:
 
 •	Natureza sintética: os dados foram gerados por simulação e não por sensores físicos reais. Isto significa que o ruido sensorial, as variações de calibração e os eventos extremos típicos de ambientes fabris reais podem não estar totalmente representados;
+
 •	Desequilíbrio estrutural: apenas 3,4% dos registos correspondem a falhas. Apesar de ser fiel a realidade industrial (avarias são eventos raros), este desequilíbrio exigiu estratégias especificas de compensação e limita a confiança estatística nas métricas da classe minoritária;
+
 •	Ausência de dimensão temporal: o conjunto de dados não preserva a sequencia temporal dos registos, impedindo a aplicação de modelos de series temporais (LSTM, ARIMA) que poderiam capturar padrões de degradação progressiva ao longo do tempo;
+
 •	Variável alvo simplificada: a variável Machine failure e binaria e não distingue a gravidade da avaria. Em contexto real, uma falha critica com paragem total tem impacto muito diferente de uma microfalha autocorrigida.
 
-2.2. Limitações do Modelo
+## 2.2. Limitações do Modelo
 •	Overfitting residual: o modelo XGBoost otimizado apresenta um gap de F1-Score entre treino (94,6%) e teste (75,2%) que, embora controlado, indica que o modelo memoriza parcialmente os padrões de treino. A validação cruzada K-Fold confirma a robustez, mas o gap e um sinal de atenção em produção;
+
 •	Limiar fixo: o limiar de decisão foi otimizado estaticamente (0,3721) com base no conjunto de dados disponível. Em produção, a distribuição operacional pode desviar-se dos dados de treino, exigindo monitorização continua e recalibração periódica do limiar.
 
-2.3. Contextos em que o Modelo não é Recomendado
+## 2.3. Contextos em que o Modelo não é Recomendado
 •	Máquinas com perfil operacional significativamente diferente das presentes no conjunto de dados de treino (ex: equipamentos a funcionar fora das gamas de temperatura ou rotação observadas);
-•	Cenários onde a variável alvo seja mais granular (ex: prever o tipo especifico de falha — TWF, HDF, PWF — em vez da falha global), pois o modelo foi treinado exclusivamente para classificação binaria;
+
+•	Cenários onde a variável alvo seja mais granular (ex: prever o tipo especifico de falha (TWF, HDF, PWF) em vez da falha global), pois o modelo foi treinado exclusivamente para classificação binaria;
+
 •	Ambientes com latência crítica de decisão onde o modelo precise de responder em milissegundos, sem infraestrutura de computação adequada.
 
 
